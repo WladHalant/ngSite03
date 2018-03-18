@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import * as Rx from 'rxjs/Rx';
+import { WebSocketService } from './websocket.service';
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class FilmsService {
 
+  CHAT_URL = "ws://localhost:8080/MovieServer/ws";
   films =
     [
       {name_film: 'Film 1'},
@@ -14,45 +16,18 @@ export class FilmsService {
 
     ];
 
-  constructor() {
-
-
-  }
-
   getFilms(){
     return this.films
   }
 
-  private subject: Rx.Subject<MessageEvent>;
+  public messages: Subject<String>;
 
-  public connect(url): Rx.Subject<MessageEvent> {
-    if (!this.subject) {
-      this.subject = this.create(url);
-      console.log("Successfully connected: " + url);
-    }
-    return this.subject;
-  }
-
-  private create(url): Rx.Subject<MessageEvent> {
-    let ws = new WebSocket(url);
-
-    let observable = Rx.Observable.create(
-      (obs: Rx.Observer<MessageEvent>) => {
-        ws.onmessage = obs.next.bind(obs);
-        ws.onerror = obs.error.bind(obs);
-        ws.onclose = obs.complete.bind(obs);
-        return ws.close.bind(ws);
+  constructor(wsService: WebSocketService) {
+    this.messages = <Subject<String>>wsService
+      .connect(this.CHAT_URL)
+      .map((response: MessageEvent): String => {
+        return response.data;
       });
-
-    let observer = {
-      next: (data: Object) => {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify(data));
-        }
-      }
-    };
-
-    return Rx.Subject.create(observer, observable);
   }
 
 }
