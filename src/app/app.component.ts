@@ -16,15 +16,17 @@ export class AppComponent {
   constructor(private filmsService: FilmsService){}
 
   ngOnInit(){
-    this.filmsService.messages.subscribe(msg => {
-      console.log("Response from websocket: " + msg);
-    });
+    // this.filmsService.messages.subscribe(msg => {
+    //   console.log("Response from websocket: " + msg);
+    // });
 
     this.films = this.filmsService.getFilms();
-    this.sendMsg();
+
   }
 
   sendMsg() {
-    this.filmsService.messages.next("Hello from Angular!!! NEW :)");
+    // this.filmsService.messages.next("Hello from Angular!!! NEW :)");
+    this.filmsService.subject.next(JSON.stringify({ op: 'hello' }));
+
   }
 }
