@@ -33,8 +33,8 @@ export class FilmsService {
   }
 
   parseAnswer(msg){
-    this.films = msg;
-    console.log(msg)
+    // this.films=msg;
+    console.log(msg);
   }
 }
 

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Film} from "../film";
+import {IFilm} from "../i-film";
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +9,7 @@ import {Film} from "../film";
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() film: Film;
+  @Input() film: IFilm;
   constructor() { }
 
   ngOnInit() {
