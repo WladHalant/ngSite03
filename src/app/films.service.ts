@@ -8,15 +8,7 @@ import {WebSocketSubject} from "rxjs/observable/dom/WebSocketSubject";
 export class FilmsService {
 
   URL = "ws://localhost:8080/MovieServer/ws";
-  films =
-    [
-      {name_film: 'Film 1'},
-      {name_film: 'Film 2'},
-      {name_film: 'Film 3'},
-      {name_film: 'Film 4'},
-      {name_film: 'Film 5'},
-
-    ];
+  films: Film[] =[];
 
   getFilms(){
     return this.films
@@ -25,12 +17,7 @@ export class FilmsService {
   public messages: Subject<String>;
   public subject: WebSocketSubject<Object>;
 
-  constructor(wsService: WebSocketService) {
-    // this.messages = <Subject<String>>wsService
-    //   .connect(this.URL)
-    //   .map((response: MessageEvent): String => {
-    //     return response.data;
-    //   });
+  constructor() {
 
     this.subject = Observable.webSocket(this.URL);
     this.subject.subscribe(

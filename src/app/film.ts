@@ -1,5 +1,5 @@
-interface IFilm {
-  name_film: string;
+class Film {
+  name: string;
   rating:number;
   description: string;
   poster: string;

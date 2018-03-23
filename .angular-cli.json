@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name_film": "ng-site03"
+    "name": "ng-site03"
   },
   "apps": [
     {
