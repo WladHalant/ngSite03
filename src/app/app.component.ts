@@ -18,7 +18,6 @@ export class AppComponent {
   constructor(private filmsService: FilmsService){}
 
   ngOnInit(){
-    this.films = this.filmsService.getFilms();
     this.subscription = this.filmsService.subject.subscribe((msg)=>{this.films = msg})
 
   }

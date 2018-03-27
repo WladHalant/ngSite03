@@ -1,55 +1,151 @@
-<div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <div class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button (click)="sendMsg()" class="btn btn-outline-success my-2 my-sm-0">Search</button>
-      </div>
-      <!--<form class="form-inline my-2 my-lg-0">-->
-        <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-        <!--<button (click)="sendMsg()" class="btn btn-outline-success my-2 my-sm-0">Search</button>-->
-      <!--</form>-->
-    </div>
-  </nav>
-</div>
-
-<div class="container film">
+<div class="container">
   <div class="row">
+    <div class="col-12 bg-dark">
 
-    <div class="col-md-3 left-panel">
-      <div class="block fixed-pane"></div>
-      <div class="block fixed-pane"></div>
-      <div class="block fixed-pane"></div>
-    </div>
-    <div class="col-md-9 right-panel">
-      <app-movie-card *ngFor="let film of films" [film]="film" class="col-md-4 col-lg-3"></app-movie-card>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">iFilm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <div class="social twitter">
+                <a href="#" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="social facebook">
+                <a href="#" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <div class="social vk">
+                <a href="#" target="_blank"><i class="fa fa-vk fa-2x"></i></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="social odnoklassniki">
+                <a href="#" target="_blank"><i class="fa fa-odnoklassniki fa-2x"></i></a>
+              </div>
+            </li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button (click)="sendMsg()" class="btn btn-outline-danger">Search</button>
+          </div>
+          <!--<form class="form-inline my-2 my-lg-0">-->
+          <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+          <!--<button (click)="sendMsg()" class="btn btn-outline-success my-2 my-sm-0">Search</button>-->
+          <!--</form>-->
+        </div>
+      </nav>
+
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3 pt-3">
+
+
+      <ul class="nav flex-column bg-dark">
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">По жанрам</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#">Боевики</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Вестерны</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Военные фильмы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Детективы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Драмы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Комедии</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Криминал</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Мелодрамы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Мультфильмы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Триллеры</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ужасы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Фантастика</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Фентези</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">По годам</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">2018</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">2017</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">2016</a>
+        </li>
+
+      </ul>
+
+
+
+    </div>
+    <div class="col-sm-9">
+      <app-movie-card *ngFor="let film of films" [film]="film" ></app-movie-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">... <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">5 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">6</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">&raquo;<span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+
 </div>

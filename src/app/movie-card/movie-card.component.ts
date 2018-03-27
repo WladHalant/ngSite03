@@ -8,11 +8,14 @@ import {IFilm} from "../i-film";
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent implements OnInit {
-
+  name: String;
   @Input() film: IFilm;
   constructor() { }
 
   ngOnInit() {
+    let serverNames = JSON.parse(this.film.name);
+
+    this.name = serverNames[1];
 
   }
 
