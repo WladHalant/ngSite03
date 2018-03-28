@@ -7,8 +7,8 @@ import {Film} from "./film";
 
 @Injectable()
 export class FilmsService {
-
-  URL = "ws://localhost:8080/MovieServer/ws";
+//http://astrgan.asuscomm.com:8086/
+  URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
   films: Film[] = [];
 
   getFilms(){
