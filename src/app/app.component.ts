@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {FilmsService} from './films.service';
-import {Film} from "./film";
-import {Subscription} from "rxjs/Subscription";
 
 
 @Component({
@@ -12,18 +10,13 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class AppComponent {
 
-  subscription: Subscription;
-  films: any;
 
-  constructor(private filmsService: FilmsService){}
+  constructor(){}
 
-  ngOnInit(){
-    this.subscription = this.filmsService.subject.subscribe((msg)=>{this.films = msg})
+  // sendMsg() {
+  //   this.filmsService.subject.next(JSON.stringify({ op: 'hello' }));
+  //
+  // }
 
-  }
 
-  sendMsg() {
-    this.filmsService.subject.next(JSON.stringify({ op: 'hello' }));
-
-  }
 }
