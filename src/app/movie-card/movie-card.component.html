@@ -1,46 +1,68 @@
-<div class="row my-3 mx-auto">
+<div class="row my-3 mx-auto border border-danger">
+  <div class="col-md-12 bg-dark text-white pt-3">
+    <h3>{{this.name}}</h3>
+  </div>
   <div class="col-md-3 p-0 avatars bg-dark">
+
     <a href="#" data-tooltip="Person 1" data-placement="top">
       <img alt="Poster" src={{film.poster}} class="card-img-top">
     </a>
+
+
+
   </div>
-  <div class="col-md-9 pt-3 bg-dark text-white">
+
+  <div class="col-md-9 pt-3 bg-dark filmt text-white">
 
     <div class="row">
-      <div class="col-md-8">
-        <h3>{{this.name}}</h3>
-      </div>
-      <div class="col-md-4">
-        <fieldset class="rating">
-          <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-          <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-          <input type="radio" id="star4" name="rating" value="4" checked /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-          <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-          <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-          <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-          <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-          <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-          <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-          <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-        </fieldset>
-      </div>
 
-      <div class="col-md-12 pt-3 bg-dark">
 
-        <p class="card-text">
-          Год 7756
-        </p>
-        <p class="card-text">
-          Жанр: уляпуля
-        </p>
-        <p class="card-text">
-          {{film.description.substring(0,158) + "..."}}
-        </p>
-
-        <div class="col-md-12 my-2 ml-0 text-center">
-          <a routerLink="/player" class="btn btn-danger">Смотреть</a>
+      <div class="col-md-12 bg-dark">
+        <ul class="nav flex-column bg-dark">
+          <li class="nav-item">
+            Год выпуска: 2018
+          </li>
+          <li class="nav-item">
+            Страна: Китай
+          </li>
+          <li class="nav-item">
+            Жанр: Комедия
+          </li>
+          <li class="nav-item">
+            Продолжительность: 132 мин
+          </li>
+        </ul>
+        <div class=" my-2 bg-dark">
+          {{film.description.substring(0,520) + "..."}}
         </div>
+
+
       </div>
     </div>
   </div>
+
+
+
+
+  <div class="col-md-3 bg-dark p-3">
+    <a routerLink="/player" class="btn btn-danger btn-block">Смотреть</a>
+  </div>
+  <div class="col-md-9 bg-dark">
+    <fieldset class="rating">
+      <input type="radio" id="star6" name="rating" value="6" /><label class = "full" for="star6" title="Awesome - 6 stars"></label>
+      <input type="radio" id="star5half" name="rating" value="5 and a half" /><label class="half" for="star4half" title="Pretty good - 5.5 stars"></label>
+      <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+      <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+      <input type="radio" id="star4" name="rating" value="4" checked /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+      <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+      <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+      <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+      <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+      <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+      <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+      <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+    </fieldset>
+  </div>
+
+
 </div>

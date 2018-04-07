@@ -1,39 +1,34 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 bg-dark">
+    <div class="col-12 ">
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <a class="navbar-brand" href="#">iFilm</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <div class="social twitter">
-                <a href="#" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-              </div>
+            <li class="nav-item active ">
+              <button type="button" class="btn btn-success my-2 mr-sm-2">Новинки фильмов</button>
+
+
             </li>
             <li class="nav-item">
-              <div class="social facebook">
-                <a href="#" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <div class="social vk">
-                <a href="#" target="_blank"><i class="fa fa-vk fa-2x"></i></a>
-              </div>
+              <button type="button" class="btn btn-warning my-2 mr-sm-2">Новинки сериалов</button>
+
+
             </li>
             <li class="nav-item">
-              <div class="social odnoklassniki">
-                <a href="#" target="_blank"><i class="fa fa-odnoklassniki fa-2x"></i></a>
-              </div>
+              <button type="button" class="btn btn-info my-2 mr-sm-2">Новинки мультфильмов</button>
+
+
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button (click)="sendMsg()" class="btn btn-outline-danger">Search</button>
+            <button (click)="sendMsg()" class="btn btn-outline-warning my-2 my-sm-0">Search</button>
           </div>
           <!--<form class="form-inline my-2 my-lg-0">-->
           <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
@@ -45,15 +40,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3 pt-3">
+    <div class="col-sm-3 pt-3 sidebar-nav ">
 
-
-      <ul class="nav flex-column bg-dark">
+      <ul class="nav flex-column bg-dark p-3 border border-danger">
+        <div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">По жанрам</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#">Боевики</a>
+          <a class="nav-link" href="#">Боевики</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Вестерны</a>
@@ -92,29 +84,65 @@
           <a class="nav-link" href="#">Фентези</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">По годам</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">2018</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">2017</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">2016</a>
-        </li>
 
       </ul>
 
 
 
     </div>
-    <div class="col-sm-9">
-      <router-outlet></router-outlet>
+
+    <div class="col-sm-9 pt-3">
+      <div class="col-sm-12 bg-dark text-white border border-danger">
+        Сортировать по:
+        <div class="btn-group p-2">
+          <button type="button" class="btn btn-danger">Год</button>
+          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">2018</a>
+            <a class="dropdown-item" href="#">2017</a>
+            <a class="dropdown-item" href="#">2016</a>
+            <a class="dropdown-item" href="#">2015</a>
+            <a class="dropdown-item" href="#">2014</a>
+            <a class="dropdown-item" href="#">2013</a>
+          </div>
+        </div>
+        <div class="btn-group p-2">
+          <button type="button" class="btn btn-danger">Страна</button>
+          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Россия</a>
+            <a class="dropdown-item" href="#">Китай</a>
+            <a class="dropdown-item" href="#">Индия</a>
+            <a class="dropdown-item" href="#">Германия</a>
+            <a class="dropdown-item" href="#">США</a>
+            <a class="dropdown-item" href="#">Аргентина</a>
+          </div>
+        </div>
+        <div class="btn-group p-2">
+          <button type="button" class="btn btn-danger">Все</button>
+          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Фильмы</a>
+            <a class="dropdown-item" href="#">Сериалы</a>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <router-outlet></router-outlet> </div>
+      </div>
+
     </div>
   </div>
-
 
   <app-pagination></app-pagination>
 

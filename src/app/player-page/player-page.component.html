@@ -1,19 +1,40 @@
-<link rel='stylesheet prefetch' href='https://vjs.zencdn.net/5-unsafe/video-js.css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script  src="http://astrgan.asuscomm.com:8082/js/index.js"></script>
+<div class="row my-3 mx-auto border border-danger">
+  <div class="col-md-12 bg-dark text-white pt-3">
+    <link rel='stylesheet prefetch' href='https://vjs.zencdn.net/5-unsafe/video-js.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script  src="http://astrgan.asuscomm.com:8082/js/index.js"></script>
 
 
-<div id="instructions">
+    <div id="instructions">
 
-  <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" data-setup ='{}'
-         controls preload="none" poster='http://content.bitsontherun.com/thumbs/3XnJSIm4-480.jpg'
-         data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-    <source src="//content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" type="video/mp4">
-    <source src="//content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" type="video/webm">
-    <track label="pt" kind="captions" srclang="pt" src="http://playertest.longtailvideo.com/caption-files/sintel-en.srt" default="">
-  </video>
+      <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" data-setup ='{}'
+             controls preload="none" poster='http://content.bitsontherun.com/thumbs/3XnJSIm4-480.jpg'
+             data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+        <source src="//content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" type="video/mp4">
+        <source src="//content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" type="video/webm">
+        <track label="pt" kind="captions" srclang="pt" src="http://playertest.longtailvideo.com/caption-files/sintel-en.srt" default="">
+      </video>
 
-</div>
-
+    </div>
+  </div>
+  <div class="col-md-12 bg-dark text-white">
+    <ul class="nav flex-column bg-dark">
+      <li class="nav-item">
+        Год выпуска: 2018
+      </li>
+      <li class="nav-item">
+        Страна: Китай
+      </li>
+      <li class="nav-item">
+        Жанр: Комедия
+      </li>
+      <li class="nav-item">
+        Продолжительность: 132 мин
+      </li>
+    </ul>
+    <div class=" my-2 bg-dark">
+      {{film.description.substring(0,520) + "..."}}
+    </div>
+  </div>
 
