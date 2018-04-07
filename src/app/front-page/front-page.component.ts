@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 
@@ -7,7 +7,7 @@ import {Subscription} from "rxjs/Subscription";
   templateUrl: './front-page.component.html',
   styleUrls: ['./front-page.component.scss']
 })
-export class FrontPageComponent implements OnInit {
+export class FrontPageComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
   films: any;
@@ -17,6 +17,10 @@ export class FrontPageComponent implements OnInit {
   ngOnInit(){
     this.subscription = this.filmsService.subject2.subscribe((msg)=>{this.films = msg})
 
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

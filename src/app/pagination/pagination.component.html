@@ -5,7 +5,17 @@
 
 
 
-        <li *ngFor="let page of numbers" class="page-item"><a class="page-link" href="#">{{page}}</a></li>
+        <li *ngFor="let page of numbers" class="page-item" [ngClass]="{'active': page==currentPage+1}">
+
+          <a *ngIf="!(page==currentPage+1)" (click)="pageClick($event, page)" class="page-link">
+            {{page}}
+          </a>
+
+          <span *ngIf="(page==currentPage+1)" class="page-link">
+            {{page}}
+          <span class="sr-only">(current)</span>
+          </span>
+        </li>
 
 
 

@@ -16,7 +16,6 @@ export class MovieCardComponent implements OnInit {
     let serverNames = JSON.parse(this.film.name);
 
     this.name = serverNames[1];
-
   }
 
 }

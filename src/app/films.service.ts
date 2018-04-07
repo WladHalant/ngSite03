@@ -21,8 +21,13 @@ export class FilmsService {
 
   public subject: WebSocketSubject<Object>;
   public subject2: Subject<any>;
+  public pages: number;
+  public currentPage: number;
+  private numSelector: number = 3;
 
   constructor() {
+    this.pages = 0;
+    this.currentPage = 0;
     this.subject2 = new Subject();
     this.subject = Observable.webSocket(this.URL);
     this.subject.subscribe(
@@ -34,9 +39,17 @@ export class FilmsService {
   }
 
   parseAnswer(msg){
+    console.log("parseAnswer");
     this.films=msg;
-    this.subject2.next(this.films.slice(0, 3));
+    this.pages = Math.ceil(this.films.length/this.numSelector);
+    this.subject2.next(this.films.slice(this.currentPage, this.numSelector));
     // console.log(msg);
+  }
+
+  goPage(number: number){
+    this.subject2.next(this.films.slice(((number-1) * this.numSelector), ((number-1)*3)+(this.numSelector) ));
+
+    this.currentPage = number -1;
   }
 }
 

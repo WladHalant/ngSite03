@@ -16,3 +16,10 @@
   background-color: #30363B;
   border-color: #1e262d;
 }
+
+.pagination>li.active>span {
+  z-index: 3;
+  color: grey;
+  background-color: red;
+  border-color: #1e262d;
+}

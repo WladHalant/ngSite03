@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IFilm} from "../i-film";
+import { ActivatedRoute} from '@angular/router';
+import {Film} from "../film";
+import {FilmsService} from "../films.service";
 
 @Component({
   selector: 'app-player-page',
@@ -8,14 +10,17 @@ import {IFilm} from "../i-film";
 })
 export class PlayerPageComponent implements OnInit {
 
-  constructor() { }
-  @Input() film: IFilm;
+  constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService) {
+    this.filmName = activateRoute.snapshot.params['filmName'];
+
+  }
   name: String;
+  filmName: string;
+  film: Film;
 
   ngOnInit() {
-    let serverNames = JSON.parse(this.film.name);
 
-    this.name = serverNames[1];
+    console.log("filmName" + this.filmName)
   }
 
 }
