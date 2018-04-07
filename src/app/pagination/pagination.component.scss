@@ -1,0 +1,18 @@
+.pagination > li > a:focus
+{
+  background-color: black;
+}
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  z-index: 3;
+  color: grey;
+  background-color: #1e262d;
+  border-color: #1e262d;
+}
+.pagination > li > a {
+  z-index: 3;
+  color: grey;
+  background-color: #30363B;
+  border-color: #1e262d;
+}

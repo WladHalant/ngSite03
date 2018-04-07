@@ -7,6 +7,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { PlayerPageComponent } from './player-page/player-page.component';
 import {RouterModule} from "@angular/router";
+import { PaginationComponent } from './pagination/pagination.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -18,7 +19,8 @@ const routes = [
     AppComponent,
     MovieCardComponent,
     FrontPageComponent,
-    PlayerPageComponent
+    PlayerPageComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

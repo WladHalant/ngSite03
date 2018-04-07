@@ -15,7 +15,7 @@ export class FrontPageComponent implements OnInit {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit(){
-    this.subscription = this.filmsService.subject.subscribe((msg)=>{this.films = msg})
+    this.subscription = this.filmsService.subject2.subscribe((msg)=>{this.films = msg})
 
   }
 
