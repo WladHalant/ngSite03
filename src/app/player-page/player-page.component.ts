@@ -33,7 +33,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
-    filmFilter.year_of_release = 0;
+    filmFilter.year = 0;
     this.filmsService.subject.next(JSON.stringify(filmFilter));
 
   }

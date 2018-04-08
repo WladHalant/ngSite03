@@ -38,7 +38,7 @@ export class FilmsService {
 
     let filmFilter: Film = new Film();
     filmFilter.id = 0;
-    filmFilter.year_of_release = 0;
+    filmFilter.year = 0;
     this.subject.next(JSON.stringify(filmFilter));
   }
 

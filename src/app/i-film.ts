@@ -4,6 +4,6 @@ export interface IFilm {
   rating:number;
   description: string;
   poster: string;
-  year_of_release: number;
+  year: number;
   path: string;
 }
