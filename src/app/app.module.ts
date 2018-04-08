@@ -11,7 +11,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
-  {path: 'player/:filmName', component: PlayerPageComponent}
+  {path: 'player/:filmID', component: PlayerPageComponent}
 ];
 
 @NgModule({
