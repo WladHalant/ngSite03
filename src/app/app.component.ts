@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FilmsService} from './films.service';
+import {Film} from "./film";
 
 
 @Component({
@@ -11,12 +12,15 @@ import {FilmsService} from './films.service';
 export class AppComponent {
 
 
-  constructor(){}
+  constructor(private filmsService: FilmsService){}
 
-  // sendMsg() {
-  //   this.filmsService.subject.next(JSON.stringify({ op: 'hello' }));
-  //
-  // }
+  getFilmsForYear(event){
+    console.log("Clicked: " + event.textContent);
 
+    let filmFilter: Film = new Film();
+    filmFilter.id = 0;
+    filmFilter.year = Number(event.textContent);
+    this.filmsService.subject.next(JSON.stringify(filmFilter));
+  }
 
 }
