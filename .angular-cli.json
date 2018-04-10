@@ -20,6 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
+        "../node_modules/primeng/resources/themes/cupertino/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
