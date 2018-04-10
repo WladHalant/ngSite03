@@ -36,10 +36,7 @@ export class FilmsService {
       () => console.log('complete')
     );
 
-    let filmFilter: Film = new Film();
-    filmFilter.id = 0;
-    filmFilter.year = 0;
-    this.subject.next(JSON.stringify(filmFilter));
+
   }
 
   parseAnswer(msg){
