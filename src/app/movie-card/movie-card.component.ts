@@ -15,7 +15,7 @@ export class MovieCardComponent implements OnInit {
   ngOnInit() {
     let serverNames = JSON.parse(this.film.name);
 
-    this.name = serverNames[1];
+    this.name = serverNames[0] + " / " + serverNames[1];
   }
 
 }
