@@ -11,16 +11,28 @@ import {Film} from "./film";
 })
 export class AppComponent {
 
+  year: any = "Год";
 
   constructor(private filmsService: FilmsService){}
 
   getFilmsForYear(event){
-    console.log("Clicked: " + event.textContent);
-
     let filmFilter: Film = new Film();
-    filmFilter.id = 0;
-    filmFilter.year = Number(event.textContent);
-    this.filmsService.subject.next(JSON.stringify(filmFilter));
+
+    if(event.textContent != "Все") {
+
+      this.year = event.textContent;
+      filmFilter.id = 0;
+      filmFilter.year = Number(this.year);
+      this.filmsService.subject.next(JSON.stringify(filmFilter));
+
+    }else {
+
+      this.year = "Год";
+      filmFilter.id = 0;
+      filmFilter.year = 0;
+      this.filmsService.subject.next(JSON.stringify(filmFilter));
+
+    }
   }
 
 }

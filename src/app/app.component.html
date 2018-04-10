@@ -137,11 +137,12 @@
       <div class="col-sm-12 bg-dark text-white border border-danger">
         Сортировать по:
         <div class="btn-group p-2">
-          <button type="button" class="btn btn-danger">Год</button>
+          <button type="button" class="btn btn-danger">{{year}}</button>
           <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2018</a>
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2017</a>
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2016</a>
