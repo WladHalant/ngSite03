@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  brands: string[] = ['Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation'];
+  brands: string[] = ['Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
   filteredBrands: any[];
 
   brand: string;
