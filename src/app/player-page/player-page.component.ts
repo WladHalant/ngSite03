@@ -25,7 +25,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   ngOnInit(){
 
 
-    this.subscription = this.filmsService.subject.subscribe((msg)=>{
+    this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{
       let films: any = msg;
       this.film = films[0];
 
@@ -34,7 +34,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
-    this.filmsService.subject.next(JSON.stringify(filmFilter));
+    this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
 
   }
 

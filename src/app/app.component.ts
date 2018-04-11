@@ -23,14 +23,14 @@ export class AppComponent {
       this.year = event.textContent;
       filmFilter.id = 0;
       filmFilter.year = Number(this.year);
-      this.filmsService.subject.next(JSON.stringify(filmFilter));
+      this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
 
     }else {
 
       this.year = "Год";
       filmFilter.id = 0;
       filmFilter.year = 0;
-      this.filmsService.subject.next(JSON.stringify(filmFilter));
+      this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
 
     }
   }

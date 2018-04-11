@@ -11,18 +11,21 @@ export class FilmsService {
   URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
   films: Film[];
 
-  public subject: WebSocketSubject<Object>;
-  public subject2: Subject<any>;
+  public wsSubject: WebSocketSubject<Object>;
+  public pageSubject: Subject<any>;
   public pages: number;
   public currentPage: number;
   private numSelector: number = 3;
 
+
   constructor() {
+
+
     this.pages = 0;
     this.currentPage = 0;
-    this.subject2 = new Subject();
-    this.subject = Observable.webSocket(this.URL);
-    this.subject.subscribe(
+    this.pageSubject = new Subject();
+    this.wsSubject = Observable.webSocket(this.URL);
+    this.wsSubject.subscribe(
       (msg) => this.parseAnswer(msg),
       (err) => console.log(err),
       () => console.log('complete')
@@ -33,15 +36,15 @@ export class FilmsService {
 
   parseAnswer(msg){
     this.pages = 0;
-    this.currentPage = 0;;
+    this.currentPage = 0;
     this.films=msg;
     this.pages = Math.ceil(this.films.length/this.numSelector);
-    this.subject2.next(this.films.slice(this.currentPage, this.numSelector));
+    this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
     // console.log(msg);
   }
 
   goPage(number: number){
-    this.subject2.next(this.films.slice(((number-1) * this.numSelector), ((number-1)*3)+(this.numSelector) ));
+    this.pageSubject.next(this.films.slice(((number-1) * this.numSelector), ((number-1)*3)+(this.numSelector) ));
 
     this.currentPage = number -1;
   }
