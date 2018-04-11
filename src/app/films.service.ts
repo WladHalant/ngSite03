@@ -11,14 +11,6 @@ export class FilmsService {
   URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
   films: Film[];
 
-  // getFilms(){
-  //   let film = new Film();
-  //   film.name = "awd";
-  //   this.films.push(film);
-  //   return this.films
-  // }
-
-
   public subject: WebSocketSubject<Object>;
   public subject2: Subject<any>;
   public pages: number;
@@ -40,7 +32,8 @@ export class FilmsService {
   }
 
   parseAnswer(msg){
-    console.log("parseAnswer");
+    this.pages = 0;
+    this.currentPage = 0;;
     this.films=msg;
     this.pages = Math.ceil(this.films.length/this.numSelector);
     this.subject2.next(this.films.slice(this.currentPage, this.numSelector));
