@@ -18,12 +18,15 @@ export class SearchComponent implements OnInit {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
+/*
         this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{this.brands = msg});
 
           let obj = {
             "command":"arrayAllNamesFilms"
         };
         this.filmsService.wsSubject.next(JSON.stringify(obj));
+*/
+
   }
 
   filterBrands(event) {
