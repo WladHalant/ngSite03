@@ -9,8 +9,9 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class SearchComponent implements OnInit {
 
-  brands: string[] = ['huy','Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
+ //brands: string[] = ['huy','Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
   filteredBrands: any[];
+  brands: string[];
 
   brand: string;
   subscription: Subscription;
@@ -18,14 +19,14 @@ export class SearchComponent implements OnInit {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
-/*
-        this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{this.brands = msg});
+
+        //this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{this.brands = msg});
 
           let obj = {
             "command":"arrayAllNamesFilms"
         };
         this.filmsService.wsSubject.next(JSON.stringify(obj));
-*/
+
 
   }
 
