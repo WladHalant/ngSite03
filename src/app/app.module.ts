@@ -14,6 +14,7 @@ import {CodeHighlighterModule, TabViewModule} from "primeng/primeng";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import { LeftPanelComponent } from './left-panel/left-panel.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -27,7 +28,8 @@ const routes = [
     FrontPageComponent,
     PlayerPageComponent,
     PaginationComponent,
-    SearchComponent
+    SearchComponent,
+    LeftPanelComponent
   ],
   imports: [
     BrowserModule,

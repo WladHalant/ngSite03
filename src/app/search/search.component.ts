@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FilmsService} from "../films.service";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-search',
@@ -7,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  brands: string[] = ['Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
+  brands: string[] = ['huy','Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
   filteredBrands: any[];
 
   brand: string;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
+        this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{this.brands = msg});
 
+          let obj = {
+            "command":"arrayAllNamesFilms"
+        };
+        this.filmsService.wsSubject.next(JSON.stringify(obj));
   }
 
   filterBrands(event) {

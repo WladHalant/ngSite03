@@ -8,7 +8,8 @@ import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class FilmsService {
-  URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
+  // URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
+  URL = "ws://localhost:8080/MovieServer/ws";
   films: Film[];
 
   public wsSubject: WebSocketSubject<Object>;
@@ -30,6 +31,7 @@ export class FilmsService {
       (err) => console.log(err),
       () => console.log('complete')
     );
+
 
 
   }

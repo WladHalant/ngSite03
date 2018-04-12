@@ -34,7 +34,11 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
-    this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
+    let obj = {
+        "command":"select",
+        "value": filmFilter
+    };
+    this.filmsService.wsSubject.next(JSON.stringify(obj));
 
   }
 
