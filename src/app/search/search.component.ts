@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 
@@ -7,11 +7,11 @@ import {Subscription} from "rxjs/Subscription";
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
- //brands: string[] = ['huy','Marrowbone','Jumanji: Welcome to the Jungle','Anthropoid','Kill\'em All','Wonder','Jaguar','Devil\'s Gate','Murder on the Orient Express','Passengers','La consolation', 'American Made'];
-  filteredBrands: any[];
   brands: string[];
+  filteredBrands: any[];
+
 
   brand: string;
   subscription: Subscription;
@@ -19,14 +19,10 @@ export class SearchComponent implements OnInit {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
-
-        //this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{this.brands = msg});
-
-          let obj = {
-            "command":"arrayAllNamesFilms"
-        };
-        this.filmsService.wsSubject.next(JSON.stringify(obj));
-
+    this.filmsService.getListFilms();
+    this.subscription = this.filmsService.listSubject.subscribe((msg)=>{
+        this.brands = msg;
+    })
 
   }
 
@@ -40,4 +36,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

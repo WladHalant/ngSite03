@@ -43,4 +43,13 @@ export class AppComponent {
     }
   }
 
+  sendMsg() {
+
+    let filterFilm: Film = new Film();
+    filterFilm.id = 0;
+    filterFilm.year = 0;
+    filterFilm.name = "sdjoghdjskaghsdahgsaiodughsdoQQQQQQQQQQQQQAAAAAAAAAAAAAAAAAA";
+    this.filmsService.getFilms(filterFilm);
+
+  }
 }

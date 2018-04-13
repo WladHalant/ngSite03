@@ -15,6 +15,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import { LeftPanelComponent } from './left-panel/left-panel.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -35,6 +36,7 @@ const routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
 
     CommonModule,
     FormsModule,
