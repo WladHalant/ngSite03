@@ -49,6 +49,14 @@ export class FilmsService {
 
   getFilms(filterFilm: Film) {
 
+/*    this.http.get("http://localhost:8080/TestServer/rest/rest").subscribe(
+      (data:any[])=> {
+        console.log(data)
+      }
+    );*/
+
+
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
