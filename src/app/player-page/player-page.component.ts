@@ -20,8 +20,6 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   }
 
-
-
   ngOnInit(){
 
 
@@ -34,13 +32,8 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
-    let obj = {
-        "command":"select",
-        "value": filmFilter
-    };
-    //this.filmsService.wsSubject.next(JSON.stringify(obj));
-    this.filmsService.getFilms(filmFilter);
 
+    this.filmsService.getFilms(filmFilter);
   }
 
   ngOnDestroy() {

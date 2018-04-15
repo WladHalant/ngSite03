@@ -10,11 +10,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class FilmsService {
-  // URL = "ws://astrgan.asuscomm.com:8086/MovieServer/ws";
-  URL = "ws://localhost:8080/MovieServer/ws";
+   URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/films";
+  //URL = "http://localhost:8080/MovieServer/rest/films";
   films: Film[];
 
-  //public wsSubject: WebSocketSubject<Object>;
   public pageSubject: Subject<any>;
   public pages: number;
   public currentPage: number;
@@ -29,17 +28,10 @@ export class FilmsService {
     this.pageSubject = new Subject();
     this.listSubject = new Subject();
 
-
-/*    this.wsSubject = Observable.webSocket(this.URL);
-    this.wsSubject.subscribe(
-      (msg) => this.parseAnswer(msg),
-      (err) => console.log(err),
-      () => console.log('complete')
-    );*/
   }
 
   getListFilms(){
-    this.http.get("http://localhost:8080/MovieServer/rest/films").subscribe(
+    this.http.get(this.URL).subscribe(
       (data:any[])=> {
         this.listSubject.next(data);
       }
@@ -55,7 +47,7 @@ export class FilmsService {
       })
     };
 
-    this.http.post("http://localhost:8080/MovieServer/rest/films", JSON.stringify(filterFilm), httpOptions).subscribe(
+    this.http.post(this.URL, JSON.stringify(filterFilm), httpOptions).subscribe(
       (data: any[]) => {
         this.parseAnswer(data);
 
