@@ -23,33 +23,28 @@ export class AppComponent {
       this.year = event.textContent;
       filmFilter.id = 0;
       filmFilter.year = Number(this.year);
+      filmFilter.name = "";
       let obj = {
         "command":"select",
         "value": filmFilter
       };
-      this.filmsService.wsSubject.next(JSON.stringify(obj));
+      // this.filmsService.wsSubject.next(JSON.stringify(obj));
+      this.filmsService.getFilms(filmFilter);
 
     }else {
 
       this.year = "Год";
       filmFilter.id = 0;
       filmFilter.year = 0;
+      filmFilter.name = "";
       let obj = {
         "command":"select",
         "value": filmFilter
       };
-      this.filmsService.wsSubject.next(JSON.stringify(obj));
+      // this.filmsService.wsSubject.next(JSON.stringify(obj));
+      this.filmsService.getFilms(filmFilter);
 
     }
   }
 
-  sendMsg() {
-
-    let filterFilm: Film = new Film();
-    filterFilm.id = 0;
-    filterFilm.year = 0;
-    filterFilm.name = "sdjoghdjskaghsdahgsaiodughsdoQQQQQQQQQQQQQAAAAAAAAAAAAAAAAAA";
-    this.filmsService.getFilms(filterFilm);
-
-  }
 }

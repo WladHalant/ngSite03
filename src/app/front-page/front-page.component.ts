@@ -21,11 +21,13 @@ export class FrontPageComponent implements OnInit, OnDestroy {
     let filmFilter: Film = new Film();
     filmFilter.id = 0;
     filmFilter.year = 0;
+    filmFilter.name = "";
     let obj = {
         "command":"select",
         "value": filmFilter
     };
-    this.filmsService.wsSubject.next(JSON.stringify(obj));
+    //this.filmsService.wsSubject.next(JSON.stringify(obj));
+    this.filmsService.getFilms(filmFilter);
 
   }
 

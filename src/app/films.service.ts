@@ -14,7 +14,7 @@ export class FilmsService {
   URL = "ws://localhost:8080/MovieServer/ws";
   films: Film[];
 
-  public wsSubject: WebSocketSubject<Object>;
+  //public wsSubject: WebSocketSubject<Object>;
   public pageSubject: Subject<any>;
   public pages: number;
   public currentPage: number;
@@ -30,12 +30,12 @@ export class FilmsService {
     this.listSubject = new Subject();
 
 
-    this.wsSubject = Observable.webSocket(this.URL);
+/*    this.wsSubject = Observable.webSocket(this.URL);
     this.wsSubject.subscribe(
       (msg) => this.parseAnswer(msg),
       (err) => console.log(err),
       () => console.log('complete')
-    );
+    );*/
   }
 
   getListFilms(){
@@ -49,14 +49,6 @@ export class FilmsService {
 
   getFilms(filterFilm: Film) {
 
-/*    this.http.get("http://localhost:8080/TestServer/rest/rest").subscribe(
-      (data:any[])=> {
-        console.log(data)
-      }
-    );*/
-
-
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -65,7 +57,7 @@ export class FilmsService {
 
     this.http.post("http://localhost:8080/MovieServer/rest/films", JSON.stringify(filterFilm), httpOptions).subscribe(
       (data: any[]) => {
-        console.log("POST RESPONSE: " + data);
+        this.parseAnswer(data);
 
       }
     );
