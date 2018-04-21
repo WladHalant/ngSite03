@@ -32,7 +32,7 @@ export class FilmsService {
   }
 
   getListFilms(){
-    this.http.get(this.URL).subscribe(
+    this.http.get(this.URL + "/films").subscribe(
       (data:any[])=> {
         this.listSubject.next(data);
       }
@@ -51,6 +51,7 @@ export class FilmsService {
     this.http.post(this.URL, JSON.stringify(filterFilm), httpOptions).subscribe(
       (data: any[]) => {
         this.parseAnswer(data);
+
 
       }
     );

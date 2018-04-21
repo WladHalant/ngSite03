@@ -6,4 +6,5 @@ export interface IFilm {
   poster: string;
   year: number;
   path: string;
+  genres: string[];
 }
