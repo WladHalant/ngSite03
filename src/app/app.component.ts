@@ -25,6 +25,12 @@ export class AppComponent implements OnInit{
     this.filmsService.getListGenres();
   }
 
+  public searchGenre(event, genre) {
+    let filterFilm: Film = new Film();
+    filterFilm.genres = [genre];
+    this.filmsService.getFilms(filterFilm);
+  }
+
   getFilmsForYear(event){
     let filmFilter: Film = new Film();
 

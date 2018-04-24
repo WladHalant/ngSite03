@@ -23,6 +23,5 @@ export class MovieCardComponent implements OnInit {
     let filterFilm: Film = new Film();
     filterFilm.genres = [genre];
     this.filmsService.getFilms(filterFilm);
-
   }
 }
