@@ -19,7 +19,8 @@ export class FilmsService {
   public pages: number;
   public currentPage: number;
   private numSelector: number = 3;
-  public listSubject: Subject<any>;
+  public listFilmsSubject: Subject<any>;
+  public listGenresSubject: Subject<any>;
 
 
   constructor(private http: HttpClient) {
@@ -27,14 +28,23 @@ export class FilmsService {
     this.pages = 0;
     this.currentPage = 0;
     this.pageSubject = new Subject();
-    this.listSubject = new Subject();
+    this.listFilmsSubject = new Subject();
+    this.listGenresSubject = new Subject();
 
   }
 
   getListFilms(){
     this.http.get(this.URL + "/getfilmslist").subscribe(
       (data:any[])=> {
-        this.listSubject.next(data);
+        this.listFilmsSubject.next(data);
+      }
+    )
+  }
+
+  getListGenres(){
+    this.http.get(this.URL).subscribe(
+      (data:any[])=> {
+        this.listGenresSubject.next(data);
       }
     )
   }

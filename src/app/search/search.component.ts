@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.filmsService.getListFilms();
-    this.subscription = this.filmsService.listSubject.subscribe((msg)=>{
+    this.subscription = this.filmsService.listFilmsSubject.subscribe((msg)=>{
         this.brands = msg;
     })
 

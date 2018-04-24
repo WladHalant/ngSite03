@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FilmsService} from './films.service';
 import {Film} from "./film";
+import {Subscription} from "rxjs/Subscription";
 
 
 @Component({
@@ -9,11 +10,20 @@ import {Film} from "./film";
   styleUrls: ['./app.component.scss'],
   providers: [FilmsService]
 })
-export class AppComponent {
-
+export class AppComponent implements OnInit{
+  private subscription: Subscription;
+  genres: any;
   year: any = "Год";
 
   constructor(private filmsService: FilmsService){}
+
+  ngOnInit(): void {
+    this.subscription = this.filmsService.listGenresSubject.subscribe((msg)=>{
+      this.genres = msg;
+      console.log(this.genres);
+    });
+    this.filmsService.getListGenres();
+  }
 
   getFilmsForYear(event){
     let filmFilter: Film = new Film();
