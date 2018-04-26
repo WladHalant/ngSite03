@@ -22,11 +22,15 @@
           <li class="nav-item">
             Год выпуска: {{film.year}}
           </li>
-          <li class="nav-item">
-            Страна: Китай
-          </li>
-          <li class="nav-item">
 
+          <li class="nav-item">
+            <ul class="list-of-string">
+              <li>Страны:</li>
+              <li *ngFor="let country of film.countries"> <a [routerLink]="" (click)="searchCountry($event, country)">{{country}}</a> </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
             <ul class="list-of-string">
               <li>Жанры:</li>
               <li *ngFor="let genre of film.genres"> <a [routerLink]="" (click)="searchGenre($event, genre)">{{genre}}</a> </li>

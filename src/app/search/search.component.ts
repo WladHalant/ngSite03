@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 import {Film} from "../film";
+import {Lists} from "../Lists";
 
 @Component({
   selector: 'app-search',
@@ -20,9 +21,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
-    this.filmsService.getListFilms();
-    this.subscription = this.filmsService.listFilmsSubject.subscribe((msg)=>{
-        this.brands = msg;
+    this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
+      let lists: Lists =  msg;
+      this.brands = lists.jsonAllFilms;
     })
 
   }

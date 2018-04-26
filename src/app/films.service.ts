@@ -5,6 +5,7 @@ import "rxjs/add/observable/dom/webSocket";
 import {Film} from "./film";
 import {Subject} from "rxjs/Subject";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Lists} from "./Lists";
 
 
 
@@ -20,8 +21,8 @@ export class FilmsService {
   public currentPage: number;
   private numSelector: number = 3;
   public listFilmsSubject: Subject<any>;
-  public listGenresSubject: Subject<any>;
-
+  public listsSubject: Subject<any>;
+  public lists: Lists;
 
   constructor(private http: HttpClient) {
 
@@ -29,22 +30,14 @@ export class FilmsService {
     this.currentPage = 0;
     this.pageSubject = new Subject();
     this.listFilmsSubject = new Subject();
-    this.listGenresSubject = new Subject();
-
-  }
-
-  getListFilms(){
-    this.http.get(this.URL + "/getfilmslist").subscribe(
-      (data:any[])=> {
-        this.listFilmsSubject.next(data);
-      }
-    )
+    this.listsSubject = new Subject();
+    this.getListGenres();
   }
 
   getListGenres(){
     this.http.get(this.URL).subscribe(
       (data:any[])=> {
-        this.listGenresSubject.next(data);
+        this.listsSubject.next(data)
       }
     )
   }

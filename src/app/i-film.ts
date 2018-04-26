@@ -7,4 +7,5 @@ export interface IFilm {
   year: number;
   path: string;
   genres: string[];
+  countries: string[];
 }

@@ -71,26 +71,19 @@
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2018</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2017</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2016</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2015</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2014</a>
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">2013</a>
+            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
+
           </div>
         </div>
         <div class="btn-group p-2">
-          <button type="button" class="btn btn-danger">Страна</button>
+          <button type="button" class="btn btn-danger">{{country}}</button>
           <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Россия</a>
-            <a class="dropdown-item" href="#">Китай</a>
-            <a class="dropdown-item" href="#">Индия</a>
-            <a class="dropdown-item" href="#">Германия</a>
-            <a class="dropdown-item" href="#">США</a>
-            <a class="dropdown-item" href="#">Аргентина</a>
+            <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
+            <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
+
           </div>
         </div>
         <div class="btn-group p-2">

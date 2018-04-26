@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FilmsService} from './films.service';
 import {Film} from "./film";
 import {Subscription} from "rxjs/Subscription";
+import {Lists} from "./Lists";
 
 
 @Component({
@@ -14,15 +15,19 @@ export class AppComponent implements OnInit{
   private subscription: Subscription;
   genres: any;
   year: any = "Год";
+  years: any;
+  countries: any;
+  country: any = "Страна";
 
   constructor(private filmsService: FilmsService){}
 
   ngOnInit(): void {
-    this.subscription = this.filmsService.listGenresSubject.subscribe((msg)=>{
-      this.genres = msg;
-      console.log(this.genres);
+    this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
+      let lists: Lists =  msg;
+      this.genres = lists.jsonAllGenres;
+      this.years = lists.years;
+      this.countries = lists.countries;
     });
-    this.filmsService.getListGenres();
   }
 
   public searchGenre(event, genre) {
@@ -37,30 +42,31 @@ export class AppComponent implements OnInit{
     if(event.textContent != "Все") {
 
       this.year = event.textContent;
-      filmFilter.id = 0;
       filmFilter.year = Number(this.year);
-      filmFilter.name = "";
-      let obj = {
-        "command":"select",
-        "value": filmFilter
-      };
-      // this.filmsService.wsSubject.next(JSON.stringify(obj));
       this.filmsService.getFilms(filmFilter);
 
     }else {
 
       this.year = "Год";
-      filmFilter.id = 0;
-      filmFilter.year = 0;
-      filmFilter.name = "";
-      let obj = {
-        "command":"select",
-        "value": filmFilter
-      };
-      // this.filmsService.wsSubject.next(JSON.stringify(obj));
       this.filmsService.getFilms(filmFilter);
 
     }
   }
 
+  getFilmsForCountry(event) {
+    let filmFilter: Film = new Film();
+
+    if(event.textContent != "Все") {
+
+      this.country = event.textContent;
+      filmFilter.countries = [event.textContent];
+      this.filmsService.getFilms(filmFilter);
+
+    }else {
+
+      this.country = "Страна";
+      this.filmsService.getFilms(filmFilter);
+
+    }
+  }
 }

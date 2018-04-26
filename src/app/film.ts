@@ -7,4 +7,6 @@ export class Film {
   public year: number = 0;
   public path: string;
   public genres: string[] = [""];
+  public countries: string[] = [""];
+
 }
