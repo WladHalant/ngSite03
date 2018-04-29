@@ -16,6 +16,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import { LeftPanelComponent } from './left-panel/left-panel.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PlayerComponent } from './player/player.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -30,7 +31,8 @@ const routes = [
     PlayerPageComponent,
     PaginationComponent,
     SearchComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
