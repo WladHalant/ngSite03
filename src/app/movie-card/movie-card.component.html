@@ -37,14 +37,22 @@
             </ul>
           </li>
 
+
           <li class="nav-item">
-            Продолжительность: 132 мин
+            Режисер: {{film.writers}}
           </li>
         </ul>
         <div class=" my-2 bg-dark">
           {{film.description.substring(0,520) + "..."}}
         </div>
 
+        <ul class="nav flex-column bg-dark">
+        <li class="nav-item">
+          <ul class="list-of-string">
+            <li>Актеры:</li>
+            <li *ngFor="let actor of film.actors"> <a [routerLink]="" (click)="searchActor($event, actor)">{{actor}}</a> </li></ul>
+        </li>
+        </ul>
 
       </div>
     </div>

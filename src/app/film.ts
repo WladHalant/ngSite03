@@ -8,5 +8,7 @@ export class Film {
   public path: string;
   public genres: string[] = [""];
   public countries: string[] = [""];
+  public actors: string[] = [""];
+  public writers: string[] = [""];
 
 }

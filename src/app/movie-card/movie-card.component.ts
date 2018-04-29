@@ -10,15 +10,13 @@ import {FilmsService} from "../films.service";
 })
 export class MovieCardComponent implements OnInit {
   // name: String;
-  @Input() film: IFilm;
+  @Input() film: Film;
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
-    // let serverNames = JSON.parse(this.film.name);
-    //
-    // this.name = serverNames[0] + " / " + serverNames[1];
-    console.log("genres: " + this.film.genres.toString());
+    console.log("genres: " + this.film.actors.toString());
   }
+
   public searchGenre(event, genre) {
     let filterFilm: Film = new Film();
     filterFilm.genres = [genre];
@@ -28,6 +26,13 @@ export class MovieCardComponent implements OnInit {
   searchCountry($event, country: string) {
     let filterFilm: Film = new Film();
     filterFilm.countries = [country];
+    this.filmsService.getFilms(filterFilm);
+  }
+
+  searchActor($event, actor: string) {
+    let filterFilm: Film = new Film();
+    filterFilm.actors = [actor];
+    console.log("актер" + actor);
     this.filmsService.getFilms(filterFilm);
   }
 }
