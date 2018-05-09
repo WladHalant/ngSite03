@@ -3,6 +3,7 @@ import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 import {Film} from "../film";
 import {Lists} from "../Lists";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   brand: string;
   subscription: Subscription;
 
-  constructor(private filmsService: FilmsService) { }
+  constructor(private filmsService: FilmsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
@@ -39,7 +40,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   sendMsg() {
-
+    this.router.navigate([``], { relativeTo: this.route });
     let filterFilm: Film = new Film();
     filterFilm.id = 0;
     filterFilm.year = 0;
