@@ -3,6 +3,7 @@ import {FilmsService} from './films.service';
 import {Film} from "./film";
 import {Subscription} from "rxjs/Subscription";
 import {Lists} from "./Lists";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit{
   countries: any;
   country: any = "Страна";
 
-  constructor(private filmsService: FilmsService){}
+  constructor(private filmsService: FilmsService, private router: Router, private route: ActivatedRoute){}
 
   ngOnInit(): void {
     this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
@@ -31,12 +32,14 @@ export class AppComponent implements OnInit{
   }
 
   public searchGenre(event, genre) {
+    this.router.navigate([``], { relativeTo: this.route });
     let filterFilm: Film = new Film();
     filterFilm.genres = [genre];
     this.filmsService.getFilms(filterFilm);
   }
 
   getFilmsForYear(event){
+    this.router.navigate([``], { relativeTo: this.route });
     let filmFilter: Film = new Film();
 
     if(event.textContent != "Все") {
@@ -54,6 +57,7 @@ export class AppComponent implements OnInit{
   }
 
   getFilmsForCountry(event) {
+    this.router.navigate([``], { relativeTo: this.route });
     let filmFilter: Film = new Film();
 
     if(event.textContent != "Все") {

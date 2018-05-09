@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-3 p-0 avatars bg-dark">
 
-    <a href="#" data-tooltip="Person 1" data-placement="top">
+    <a [routerLink]="['player',film.id]" data-tooltip="Person 1" data-placement="top">
       <img alt="Poster" src={{film.poster}} class="card-img-top">
     </a>
 

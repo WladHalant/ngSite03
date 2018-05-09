@@ -1,8 +1,12 @@
 <div class="row my-3 mx-auto border border-danger">
   <div class="col-md-12 bg-dark text-white pt-3">
-    <app-player></app-player>
+    <h3>{{film.name}}</h3>
   </div>
-  <div class="col-md-12 bg-dark text-white">
+  <div class="col-md-12 bg-dark text-white pt-3">
+    <app-player></app-player>
+    <div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>
+  </div>
+  <div class="col-md-12 bg-dark d">
     <ul class="nav flex-column bg-dark">
       <li class="nav-item">
         Год выпуска: {{film.year}}
@@ -14,7 +18,7 @@
         Жанр: Комедия
       </li>
       <li class="nav-item">
-        Продолжительность: 132 мин
+        Рейтинг: 9.5/10
       </li>
     </ul>
     <div class=" my-2 bg-dark">
@@ -23,5 +27,30 @@
   </div>
 
 </div>
+<div class="row my-3 mx-auto border border-danger">
+  <div class="col-md-12 bg-dark text-white p-3">
+    <label for="exampleFormControlTextarea1">Комментарии: </label>
 
+
+
+
+    <div class="row p-3">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="row p-3">
+    <a [routerLink]="['player',film.id]" class="btn btn-danger">Отправить</a>
+    </div>
+
+
+
+    <app-comment></app-comment>
+    <app-comment></app-comment>
+    <app-comment></app-comment>
+    <app-comment></app-comment>
+
+  </div>
+
+
+
+</div>
 

@@ -17,6 +17,7 @@ import {CommonModule} from "@angular/common";
 import { LeftPanelComponent } from './left-panel/left-panel.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PlayerComponent } from './player/player.component';
+import { CommentComponent } from './comment/comment.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -32,7 +33,8 @@ const routes = [
     PaginationComponent,
     SearchComponent,
     LeftPanelComponent,
-    PlayerComponent
+    PlayerComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
