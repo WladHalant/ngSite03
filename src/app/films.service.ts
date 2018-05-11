@@ -22,16 +22,22 @@ export class FilmsService {
   private numSelector: number = 3;
   public listFilmsSubject: Subject<any>;
   public listsSubject: Subject<any>;
+  public filterFilm: Film;
   public lists: Lists;
 
   constructor(private http: HttpClient) {
 
+    this.filterFilm = new Film();
     this.pages = 0;
     this.currentPage = 0;
     this.pageSubject = new Subject();
     this.listFilmsSubject = new Subject();
     this.listsSubject = new Subject();
     this.getListGenres();
+  }
+
+  setfilterFilm(filterFilm: Film){
+    this.filterFilm = filterFilm;
   }
 
   getListGenres(){
@@ -43,7 +49,7 @@ export class FilmsService {
   }
 
 
-  getFilms(filterFilm: Film) {
+  getFilms() {
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -51,7 +57,7 @@ export class FilmsService {
       })
     };
 
-    this.http.post(this.URL, JSON.stringify(filterFilm), httpOptions).subscribe(
+    this.http.post(this.URL, JSON.stringify(this.filterFilm), httpOptions).subscribe(
       (data: any[]) => {
         this.parseAnswer(data);
 

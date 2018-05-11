@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   constructor(private filmsService: FilmsService, private router: Router, private route: ActivatedRoute){}
 
   ngOnInit(): void {
+
     this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
       let lists: Lists =  msg;
       this.genres = lists.jsonAllGenres;
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit{
     this.router.navigate([``], { relativeTo: this.route });
     let filterFilm: Film = new Film();
     filterFilm.genres = [genre];
-    this.filmsService.getFilms(filterFilm);
+    this.filmsService.setfilterFilm(filterFilm);
+    this.filmsService.getFilms();
   }
 
   getFilmsForYear(event){
@@ -46,12 +48,14 @@ export class AppComponent implements OnInit{
 
       this.year = event.textContent;
       filmFilter.year = Number(this.year);
-      this.filmsService.getFilms(filmFilter);
+      this.filmsService.setfilterFilm(filmFilter);
+      this.filmsService.getFilms();
 
     }else {
 
       this.year = "Год";
-      this.filmsService.getFilms(filmFilter);
+      this.filmsService.setfilterFilm(filmFilter);
+      this.filmsService.getFilms();
 
     }
   }
@@ -64,12 +68,14 @@ export class AppComponent implements OnInit{
 
       this.country = event.textContent;
       filmFilter.countries = [event.textContent];
-      this.filmsService.getFilms(filmFilter);
+      this.filmsService.setfilterFilm(filmFilter);
+      this.filmsService.getFilms();
 
     }else {
 
       this.country = "Страна";
-      this.filmsService.getFilms(filmFilter);
+      this.filmsService.setfilterFilm(filmFilter);
+      this.filmsService.getFilms();
 
     }
   }

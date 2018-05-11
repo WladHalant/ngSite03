@@ -20,19 +20,22 @@ export class MovieCardComponent implements OnInit {
   public searchGenre(event, genre) {
     let filterFilm: Film = new Film();
     filterFilm.genres = [genre];
-    this.filmsService.getFilms(filterFilm);
+    this.filmsService.setfilterFilm(filterFilm);
+    this.filmsService.getFilms();
   }
 
   searchCountry($event, country: string) {
     let filterFilm: Film = new Film();
     filterFilm.countries = [country];
-    this.filmsService.getFilms(filterFilm);
+    this.filmsService.setfilterFilm(filterFilm);
+    this.filmsService.getFilms();
   }
 
   searchActor($event, actor: string) {
     let filterFilm: Film = new Film();
     filterFilm.actors = [actor];
     console.log("актер" + actor);
-    this.filmsService.getFilms(filterFilm);
+    this.filmsService.setfilterFilm(filterFilm);
+    this.filmsService.getFilms();
   }
 }

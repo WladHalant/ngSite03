@@ -33,7 +33,8 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
 
-    this.filmsService.getFilms(filmFilter);
+    this.filmsService.setfilterFilm(filmFilter);
+    this.filmsService.getFilms();
   }
 
   ngOnDestroy() {

@@ -46,7 +46,8 @@ export class SearchComponent implements OnInit, OnDestroy {
     filterFilm.year = 0;
     filterFilm.name = this.brand;
     console.log("Name film:" + filterFilm.name);
-    this.filmsService.getFilms(filterFilm);
+    this.filmsService.setfilterFilm(filterFilm);
+    this.filmsService.getFilms();
 
   }
 
