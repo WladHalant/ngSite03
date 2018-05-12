@@ -1,9 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col-12 ">
+      <div class="col-12 text-right">
+        <span class="text-white">Вход | Регистрация</span>
+      </div>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-danger ">
-        <a class="navbar-brand" href="#">iFilm</a>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="http://images.fandango.com/images/fandangoblog/Gangster119-7LARGE.jpg" alt="Первый слайд">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="http://www.banzaj.pl/pictures/kultura/film/Filmy/Mroczny_Rycerz_Powstaje/mroczny_rycerz_powstaje_4.jpg" alt="Второй слайд">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="http://media.filmz.ru/photos/full/filmz.ru_f_190942.jpg" alt="Третий слайд">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand" href="#"><img alt="logo" src="https://besplatnyeprogrammy.net/images/jdownloads/fileimages/X-Codec-Pack-Logo.png" class="card-img-top"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,12 +44,12 @@
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active ">
-              <button type="button" class="btn btn-success my-2 mr-sm-2">Новинки фильмов</button>
+              <button type="button" class="btn btn-info my-2 mr-sm-2">Новинки фильмов</button>
 
 
             </li>
             <li class="nav-item">
-              <button type="button" class="btn btn-warning my-2 mr-sm-2">Новинки сериалов</button>
+              <button type="button" class="btn btn-info my-2 mr-sm-2">Новинки сериалов</button>
 
 
             </li>
@@ -46,7 +79,41 @@
         </div>
 
       </nav>
+      <div class="col-sm-12 bg-dark text-white">
+        Сортировать по:
+        <div class="btn-group p-1">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{year}}
+          </button>
+          <div class="dropdown-menu bg-danger">
+            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
+            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
+          </div>
+        </div>
+        <div class="btn-group p-1">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{country}}
+          </button>
+          <div class="dropdown-menu bg-danger">
+            <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
+            <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
+          </div>
+        </div>
+        <div class="btn-group p-1">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu bg-danger">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
 
+
+      </div>
     </div>
   </div>
   <div class="row">
@@ -61,44 +128,8 @@
       </ul>
     </div>
 
-    <div class="col-sm-9 pt-3">
-      <div class="col-sm-12 bg-dark text-white border border-danger">
-        Сортировать по:
-        <div class="btn-group p-2">
-          <button type="button" class="btn btn-danger">{{year}}</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
-            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
+    <div class="col-sm-9 pt-0">
 
-          </div>
-        </div>
-        <div class="btn-group p-2">
-          <button type="button" class="btn btn-danger">{{country}}</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
-            <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
-
-          </div>
-        </div>
-        <div class="btn-group p-2">
-          <button type="button" class="btn btn-danger">Все</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Фильмы</a>
-            <a class="dropdown-item" href="#">Сериалы</a>
-          </div>
-        </div>
-
-
-      </div>
 
       <div class="row">
         <div class="col-sm-12">
