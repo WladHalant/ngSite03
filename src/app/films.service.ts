@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs/Observable";
-import {WebSocketSubject} from "rxjs/observable/dom/WebSocketSubject";
 import "rxjs/add/observable/dom/webSocket";
 import {Film} from "./film";
 import {Subject} from "rxjs/Subject";
