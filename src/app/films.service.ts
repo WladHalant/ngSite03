@@ -61,12 +61,9 @@ export class FilmsService {
       (data: any[]) => {
         this.parseAnswer(data);
 
-
       }
     );
   }
-
-
 
   parseAnswer(msg){
     this.pages = 0;

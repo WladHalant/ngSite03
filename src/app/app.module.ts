@@ -18,10 +18,12 @@ import { LeftPanelComponent } from './left-panel/left-panel.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PlayerComponent } from './player/player.component';
 import { CommentComponent } from './comment/comment.component';
+import { LoginComponent } from './login/login.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
-  {path: 'player/:filmID', component: PlayerPageComponent}
+  {path: 'player/:filmID', component: PlayerPageComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const routes = [
     SearchComponent,
     LeftPanelComponent,
     PlayerComponent,
-    CommentComponent
+    CommentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
