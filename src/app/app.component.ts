@@ -4,13 +4,14 @@ import {Film} from "./film";
 import {Subscription} from "rxjs/Subscription";
 import {Lists} from "./Lists";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "./user.service";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [FilmsService]
+  providers: [FilmsService, UserService]
 })
 export class AppComponent implements OnInit{
   private subscription: Subscription;
