@@ -26,15 +26,15 @@ export class UserService{
     body = body.set('password', PASSWORD);
 
     this.http.post(this.URL+ "/auth", body).subscribe(
-      (data: any[]) => {
-        this.parseAnswer(data);
+      (res: Response) => {
+        this.parseAnswer(res.body);
 
       }
     );
   }
 
 
-  parseAnswer(data: any[]) {
+  parseAnswer(data: any) {
     console.log(data);
   }
 }
