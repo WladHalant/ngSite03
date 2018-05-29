@@ -8,30 +8,29 @@ export class UserService{
   //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
   URL = "http://localhost:8080/MovieServer/rest/users";
 
+  private token: string;
+
   constructor(private http: HttpClient) { }
-
-  login(login: string, pass: string){
-
-  }
 
   sendComment(comment: string){
 
   }
 
-  authorization(USERNAME: string, PASSWORD: string) {
+  authorization(USERNAME: string, PASSWORD: string, command: string) {
 
 
     let body = new HttpParams();
     body = body.set('username', USERNAME);
     body = body.set('password', PASSWORD);
 
-    this.http.post(this.URL+ "/auth", body).subscribe(
-      (res: Response) => {
-        this.parseAnswer(res.body);
+    this.http.post(this.URL+ command, body).subscribe(
+      (response: any) => {
+        this.parseAnswer(response.status);
 
       }
     );
   }
+
 
 
   parseAnswer(data: any) {

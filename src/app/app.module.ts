@@ -19,11 +19,13 @@ import {HttpClientModule} from "@angular/common/http";
 import { PlayerComponent } from './player/player.component';
 import { CommentComponent } from './comment/comment.component';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
   {path: 'player/:filmID', component: PlayerPageComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent}
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes = [
     LeftPanelComponent,
     PlayerComponent,
     CommentComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ export class LoginComponent implements OnInit {
   name: string = "sdsd@sad.com";
   pass: string;
 
+  public edited = false;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit {
 
   authorization() {
 
-    this.userService.authorization(this.name, this.pass);
+    this.userService.authorization(this.name, this.pass, "/auth");
+
+    this.edited = true;
 
 
   }
