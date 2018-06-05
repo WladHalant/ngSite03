@@ -20,12 +20,14 @@ import { PlayerComponent } from './player/player.component';
 import { CommentComponent } from './comment/comment.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
   {path: 'player/:filmID', component: PlayerPageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -40,7 +42,8 @@ const routes = [
     PlayerComponent,
     CommentComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

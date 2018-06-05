@@ -4,3 +4,12 @@
   line-height: 20px;
   color: white;
 }
+ul.list-of-string {
+  margin: 0; /* Обнуляем значение отступов */
+  padding: 1px; /* Значение полей */
+}
+ul.list-of-string li {
+  display: inline; /* Отображать как строчный элемент */
+  margin-right: 2px; /* Отступ слева */
+  padding: 1px; /* Поля вокруг текста */
+}

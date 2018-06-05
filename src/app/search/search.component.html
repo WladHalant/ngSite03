@@ -1,6 +1,6 @@
-<p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="14"
-                [minLength]="1" placeholder="Поиск">
+<p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="18"
+                [minLength]="1" placeholder="Найти">
 
 </p-autoComplete>
 
-<button (click)="sendMsg()" class="btn btn-outline-warning btn-md my-2 my-sm-0">Search</button>
+<button (click)="sendMsg()" class="btn btn-outline-warning btn-md my-2 my-sm-0"><i class="fa fa-search"></i>&nbsp;&nbsp;Поиск</button>

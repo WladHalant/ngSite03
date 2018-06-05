@@ -1,16 +1,31 @@
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" [(ngModel)]="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="row my-3 mx-auto border border-danger bg-dark  justify-content-center">
+  <div class="col-md-6 bg-dark text-white">
+    <article class="card-body">
+      <h4 class="card-title text-center mb-4 mt-1">Вход</h4>
+      <p class="text-success text-center">Ошибка. Криворукий ты урод.</p>
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input name="" class="form-control" placeholder="Адрес эл.почты" type="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Пароль" type="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Вход</button>
+        </div>
+        <p class="text-center"><a href="#" class="btn">Забыли?</a></p>
+        <p class="text-center"><a href="#" class="btn">Регистрация</a></p>
+      </form>
+    </article>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" [(ngModel)]="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-
-  <button type="submit" class="btn btn-primary" (click)="authorization()">Submit</button>
-
-  <div *ngIf="edited" class="alert alert-dark" role="alert">
-    A simple dark alert—check it out!
-  </div>
+</div>

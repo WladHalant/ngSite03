@@ -1,31 +1,52 @@
-<div class="row my-3 mx-auto border border-danger">
-  <div class="col-md-12 bg-dark text-white pt-3">
+<div class="row my-3 mx-auto">
+  <div class="col-md-12 bg-dark text-white pt-3 border border-danger">
     <h3>{{film.name}}</h3>
-  </div>
-  <div class="col-md-12 bg-dark text-white pt-3">
+
+  <div class="col-md-12 bg-dark text-white pt-3 ">
     <iframe width="720" height="405" src="//rutube.ru/play/embed/7160764" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
     <div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>
   </div>
   <div class="col-md-12 bg-dark d">
+        <ul class="nav flex-column bg-dark">
+          <li class="nav-item">
+            Год выпуска: {{film.year}}
+          </li>
+
+          <li class="nav-item">
+            <ul class="list-of-string">
+              <li>Страны:</li>
+              <li *ngFor="let country of film.countries"> <a [routerLink]="" (click)="searchCountry($event, country)">{{country}}</a> </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <ul class="list-of-string">
+              <li>Жанры:</li>
+              <li *ngFor="let genre of film.genres"> <a [routerLink]="" (click)="searchGenre($event, genre)">{{genre}}</a> </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            Режисер: {{film.writers}}
+          </li>
+          <li class="nav-item">
+            Рейтинг: 9.5/10
+          </li>
+        </ul>
     <ul class="nav flex-column bg-dark">
       <li class="nav-item">
-        Год выпуска: {{film.year}}
-      </li>
-      <li class="nav-item">
-        Страна: Китай
-      </li>
-      <li class="nav-item">
-        Жанр: Комедия
-      </li>
-      <li class="nav-item">
-        Рейтинг: 9.5/10
+        <ul class="list-of-string">
+          <li>Актеры:</li>
+          <li *ngFor="let actor of film.actors"> <a [routerLink]="" (click)="searchActor($event, actor)">{{actor}}</a> </li></ul>
       </li>
     </ul>
-    <div class=" my-2 bg-dark">
-      {{film.description}}
-    </div>
-  </div>
+        <div class=" my-2 bg-dark">
+          {{film.description.substring(0)}}
+        </div>
 
+
+  </div>
 </div>
 <div class="row my-3 mx-auto border border-danger">
   <div class="col-md-12 bg-dark text-white p-3">
@@ -54,3 +75,4 @@
 
 </div>
 
+</div>

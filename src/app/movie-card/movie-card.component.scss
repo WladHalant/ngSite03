@@ -5,38 +5,7 @@
 
 
 
-.rating {
-  border: none;
-  float: left;
-}
 
-.rating > input { display: none; }
-.rating > label:before {
-  margin: 5px;
-  margin-top: 0;
-  font-size: 1em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
-}
-
-.rating > label {
-  color: #ddd;
-  float: right;
-}
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
 .avatars {
 
@@ -66,11 +35,11 @@
 
 
 ul.list-of-string {
-  margin: 0; /* Обнуляем значение отступов */
-  padding: 1px; /* Значение полей */
+  margin: 0;
+  padding: 1px;
 }
 ul.list-of-string li {
-  display: inline; /* Отображать как строчный элемент */
-  margin-right: 2px; /* Отступ слева */
-  padding: 1px; /* Поля вокруг текста */
+  display: inline;
+  margin-right: 2px;
+  padding: 1px;
 }
