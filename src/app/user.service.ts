@@ -16,12 +16,13 @@ export class UserService{
 
   }
 
-  authorization(USERNAME: string, PASSWORD: string, command: string) {
+  authorization(USERNAME: string, PASSWORD: string, EMAIL: string, command: string) {
 
 
     let body = new HttpParams();
     body = body.set('username', USERNAME);
     body = body.set('password', PASSWORD);
+    body = body.set('email',    EMAIL);
 
     this.http.post(this.URL+ command, body).subscribe(
       (response: any) => {

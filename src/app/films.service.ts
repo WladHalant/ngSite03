@@ -9,9 +9,9 @@ import {Lists} from "./Lists";
 
 @Injectable()
 export class FilmsService {
-URL = "http://93.170.123.54/MovieServer/rest/films";
+  //URL = "http://93.170.123.54/MovieServer/rest/films";
   //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/films";
-//  URL = "http://localhost:8080/MovieServer/rest/films";
+  URL = "http://localhost:8080/MovieServer/rest/films";
   films: Film[];
 
   public pageSubject: Subject<any>;

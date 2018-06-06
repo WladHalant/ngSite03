@@ -11,6 +11,7 @@ export class RegistrationComponent implements OnInit {
   name: string = "sdsd@sad.com";
   pass: string;
   rePass: string;
+  email: string;
   message: string;
   public edited = false;
 
@@ -22,7 +23,7 @@ export class RegistrationComponent implements OnInit {
   registration() {
 
     if(this.pass === this.rePass)
-      this.userService.authorization(this.name, this.pass, "/add");
+      this.userService.authorization(this.name, this.pass, this.email, "/add");
     else{
       this.message = "Пароли не совпадают";
       this.edited=true;

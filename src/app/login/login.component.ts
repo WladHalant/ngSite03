@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   authorization() {
 
-    this.userService.authorization(this.name, this.pass, "/auth");
+    this.userService.authorization(this.name, this.pass, null,  "/auth");
 
     this.edited = true;
 

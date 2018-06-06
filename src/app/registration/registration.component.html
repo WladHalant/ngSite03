@@ -3,14 +3,14 @@
   <article class="card-body">
     <h4 class="card-title text-center mb-4 mt-1">Регистрация</h4>
 
-    <p class="text-success text-center">Ошибка. Криворукий ты урод.</p>
-    <form>
+    <p class="text-success text-center" *ngIf="edited">Ошибка. Криворукий ты урод.</p>
+
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <input name="" class="form-control" placeholder="Имя" type="email">
+          <input name="" class="form-control" placeholder="Имя" type="email" [(ngModel)]="name">
         </div>
       </div>
       <div class="form-group">
@@ -18,7 +18,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
           </div>
-          <input name="" class="form-control" placeholder="Адрес эл.почты" type="email">
+          <input name="" class="form-control" placeholder="Адрес эл.почты" type="email" [(ngModel)]="email">
         </div>
       </div>
       <div class="form-group">
@@ -26,7 +26,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <input class="form-control" placeholder="Пароль" type="password">
+          <input class="form-control" placeholder="Пароль" type="password" [(ngModel)]="pass">
         </div>
       </div>
       <div class="form-group">
@@ -34,13 +34,13 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <input class="form-control" placeholder="Повторить пароль" type="password">
+          <input class="form-control" placeholder="Повторить пароль" type="password" [(ngModel)]="rePass">
         </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="registration()">Регистрация</button>
       </div>
-    </form>
+
   </article>
 </div>
 </div>
