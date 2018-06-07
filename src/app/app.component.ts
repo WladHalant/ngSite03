@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
   countries: any;
   country: any = "Страна";
 
-  constructor(private filmsService: FilmsService, private router: Router, private route: ActivatedRoute){}
+  constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute){}
 
   ngOnInit(): void {
 
