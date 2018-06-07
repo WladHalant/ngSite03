@@ -21,6 +21,9 @@ import { CommentComponent } from './comment/comment.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContainerPanelAuthComponent } from './container-panel-auth/container-panel-auth.component';
+import { UnauthPanelComponent } from './unauth-panel/unauth-panel.component';
+import { AuthPanelComponent } from './auth-panel/auth-panel.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -43,7 +46,10 @@ const routes = [
     CommentComponent,
     LoginComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    ContainerPanelAuthComponent,
+    UnauthPanelComponent,
+    AuthPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +64,7 @@ const routes = [
     CodeHighlighterModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UnauthPanelComponent, AuthPanelComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class RegistrationComponent implements OnInit, OnDestroy {
 
-  name: string = "sdsd@sad.com";
+  name: string;
   pass: string;
   rePass: string;
   email: string;
@@ -23,6 +23,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.subscription = this.userService.messageSubject.subscribe((msg)=>{
       this.message = msg.status;
       this.edited=true;
+
+     // window.location.reload();
     })
 
   }

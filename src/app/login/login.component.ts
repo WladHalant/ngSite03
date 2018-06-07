@@ -10,7 +10,7 @@ import {Subscription} from "rxjs/Subscription";
 export class LoginComponent implements OnInit, OnDestroy {
 
   email: string = "sdsd@sad.com";
-  pass: string;
+  pass: string = "toor";
 
   public edited = false;
   subscription: Subscription;
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.edited=true;
       }else {
         localStorage.setItem('token', msg.token);
+        window.location.reload();
       }
     })
   }

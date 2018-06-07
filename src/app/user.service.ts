@@ -11,9 +11,13 @@ export class UserService{
 
   token: string;
   public messageSubject: Subject<any>;
-
+  public authSubject: Subject<any>;
+  public name: string;
+  public statusAuth = 0;
   constructor(private http: HttpClient) {
     this.messageSubject = new Subject();
+    this.authSubject = new Subject();
+
     this.token = localStorage.getItem('token');
     console.log(this.token);
 
@@ -23,9 +27,14 @@ export class UserService{
       (response: any) => {
 
         if (response.status != 0){
-
+          this.statusAuth = 0;
+          this.authSubject.next();
         }else {
-          console.log("User name: " + response.name);
+          this.name = response.name;
+          console.log("User name: " + this.name);
+          this.statusAuth = 1;
+          this.authSubject.next(this.name);
+
         }
 
       }
@@ -57,5 +66,17 @@ export class UserService{
   parseAnswer(data: any) {
     console.log(data);
     this.messageSubject.next(data);
+  }
+
+  logout() {
+
+    let body = new HttpParams();
+    body = body.set('password', this.token);
+    this.http.post(this.URL + "/logout", body).subscribe(
+      () => {}
+    );
+
+    localStorage.removeItem('token');
+
   }
 }
