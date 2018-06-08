@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FilmsService} from './films.service';
-import {Film} from "./film";
+import {FilmsService} from './movies/films.service';
+import {Film} from "./movies/film";
 import {Subscription} from "rxjs/Subscription";
-import {Lists} from "./Lists";
+import {Lists} from "./movies/Lists";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "./user.service";
+import {UserService} from "./users/user.service";
 
 
 @Component({

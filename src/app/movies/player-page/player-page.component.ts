@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import {Film} from "../film";
 import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
+import {UserService} from "../../users/user.service";
 
 @Component({
   selector: 'app-player-page',
@@ -15,7 +16,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   film: Film;
   filmID: number;
 
-  constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService) {
+  constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService, private userService: UserService) {
     this.filmID = activateRoute.snapshot.params['filmID'];
 
   }
@@ -39,5 +40,9 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  Commenting() {
+    this.userService.sendComment("dfhrdhrd");
   }
 }

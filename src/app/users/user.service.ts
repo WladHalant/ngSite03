@@ -1,13 +1,14 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Subject} from "rxjs/Subject";
+import {Comment} from "./comment";
 
 @Injectable()
 export class UserService{
 
-  URL = "http://93.170.123.54/MovieServer/rest/users";
+  //URL = "http://93.170.123.54/MovieServer/rest/users";
   //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
-  //URL = "http://localhost:8080/MovieServer/rest/users";
+  URL = "http://localhost:8080/MovieServer/rest/users";
 
   token: string;
   public messageSubject: Subject<any>;
@@ -39,9 +40,6 @@ export class UserService{
 
       }
     );
-  }
-
-  sendComment(comment: string){
 
   }
 
@@ -56,6 +54,25 @@ export class UserService{
     this.http.post(this.URL + command, body).subscribe(
       (response: any) => {
         this.parseAnswer(response);
+
+      }
+    );
+  }
+
+  sendComment(comment: string){
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    let commentJSON: Comment = new Comment(comment, this.token);
+
+    this.http.post("http://localhost:8080/MovieServer/rest/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
+      (data: any[]) => {
+
+        console.log(data);
 
       }
     );

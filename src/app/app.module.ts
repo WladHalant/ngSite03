@@ -3,27 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
-import { FrontPageComponent } from './front-page/front-page.component';
-import { PlayerPageComponent } from './player-page/player-page.component';
+import { MovieCardComponent } from './movies/movie-card/movie-card.component';
+import { FrontPageComponent } from './movies/front-page/front-page.component';
+import { PlayerPageComponent } from './movies/player-page/player-page.component';
 import {RouterModule} from "@angular/router";
-import { PaginationComponent } from './pagination/pagination.component';
-import {SearchComponent} from "./search/search.component";
+import { PaginationComponent } from './movies/pagination/pagination.component';
+import {SearchComponent} from "./movies/search/search.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CodeHighlighterModule, TabViewModule} from "primeng/primeng";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import { LeftPanelComponent } from './left-panel/left-panel.component';
+import { LeftPanelComponent } from './movies/left-panel/left-panel.component';
 import {HttpClientModule} from "@angular/common/http";
-import { PlayerComponent } from './player/player.component';
-import { CommentComponent } from './comment/comment.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ContainerPanelAuthComponent } from './container-panel-auth/container-panel-auth.component';
-import { UnauthPanelComponent } from './unauth-panel/unauth-panel.component';
-import { AuthPanelComponent } from './auth-panel/auth-panel.component';
+import { PlayerComponent } from './movies/player/player.component';
+import { CommentComponent } from './users/comment/comment.component';
+import { LoginComponent } from './users/login/login.component';
+import { RegistrationComponent } from './users/registration/registration.component';
+import { ProfileComponent } from './users/profile/profile.component';
+import { ContainerPanelAuthComponent } from './users/container-panel-auth/container-panel-auth.component';
+import { UnauthPanelComponent } from './users/unauth-panel/unauth-panel.component';
+import { AuthPanelComponent } from './users/auth-panel/auth-panel.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},

@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Film} from "../film";
-import {IFilm} from "../i-film";
 import {FilmsService} from "../films.service";
 
 @Component({
