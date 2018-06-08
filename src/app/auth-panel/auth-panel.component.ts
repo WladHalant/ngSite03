@@ -7,7 +7,7 @@ import {UserService} from "../user.service";
   styleUrls: ['./auth-panel.component.scss']
 })
 export class AuthPanelComponent implements OnInit {
-  private name: string;
+  public name: string;
 
   constructor(private userService: UserService) { }
 

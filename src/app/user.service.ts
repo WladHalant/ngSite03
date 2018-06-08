@@ -5,9 +5,9 @@ import {Subject} from "rxjs/Subject";
 @Injectable()
 export class UserService{
 
-  //URL = "http://93.170.123.54/MovieServer/rest/users";
+  URL = "http://93.170.123.54/MovieServer/rest/users";
   //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
-  URL = "http://localhost:8080/MovieServer/rest/users";
+  //URL = "http://localhost:8080/MovieServer/rest/users";
 
   token: string;
   public messageSubject: Subject<any>;
