@@ -48,7 +48,8 @@ export class FilmsService {
 
 
   getFilms() {
-
+    console.log("JSON:");
+    console.log(JSON.stringify(this.filterFilm));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'

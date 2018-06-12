@@ -15,6 +15,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   film: Film;
   filmID: number;
+  comment: string = "";
 
   constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService, private userService: UserService) {
     this.filmID = activateRoute.snapshot.params['filmID'];
@@ -27,6 +28,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
       let films: any = msg;
       this.film = films[0];
+
 
     });
 
@@ -43,6 +45,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   }
 
   Commenting() {
-    this.userService.sendComment("dfhrdhrd");
+    this.userService.sendComment(this.comment, this.filmID);
+    this.comment = "";
   }
 }

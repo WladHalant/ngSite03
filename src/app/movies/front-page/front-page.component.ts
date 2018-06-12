@@ -18,11 +18,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
   ngOnInit(){
     this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{this.films = msg});
 
-    // let filmFilter: Film = new Film();
-    // filmFilter.id = 0;
-    // filmFilter.year = 0;
-    // filmFilter.name = "";
-    // this.filmsService.setfilterFilm(filmFilter);
     this.filmsService.getFilms();
 
   }

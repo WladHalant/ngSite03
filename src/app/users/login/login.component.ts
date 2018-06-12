@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.edited=true;
       }else {
         localStorage.setItem('token', msg.token);
-        window.location.reload();
+
+        window.location.assign("http://93.170.123.54")
       }
     })
   }

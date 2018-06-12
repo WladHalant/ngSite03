@@ -59,7 +59,7 @@ export class UserService{
     );
   }
 
-  sendComment(comment: string){
+  sendComment(comment: string, id_film: number){
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -67,7 +67,7 @@ export class UserService{
       })
     };
 
-    let commentJSON: Comment = new Comment(comment, this.token);
+    let commentJSON: Comment = new Comment(comment, this.token, id_film);
 
     this.http.post("http://localhost:8080/MovieServer/rest/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
       (data: any[]) => {

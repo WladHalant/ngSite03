@@ -10,5 +10,6 @@ export class Film {
   public countries: string[] = [""];
   public actors: string[] = [""];
   public writers: string[] = [""];
+  public comments: Comment[];
 
 }
