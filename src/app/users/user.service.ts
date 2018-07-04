@@ -69,7 +69,7 @@ export class UserService{
 
     let commentJSON: Comment = new Comment(comment, this.token, id_film);
 
-    this.http.post("http://localhost:8080/MovieServer/rest/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
+    this.http.post("http://93.170.123.54/MovieServer/rest/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
       (data: any[]) => {
 
         console.log(data);

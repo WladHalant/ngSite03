@@ -14,4 +14,7 @@ export class UnauthPanelComponent implements OnInit {
     this.name = this.userService.name;
   }
 
+  goAnchor() {
+    window.location.hash = 'loginDIVid';
+  }
 }

@@ -23,6 +23,10 @@ export class AppComponent implements OnInit{
 
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute){}
 
+  goTo(location: string): void {
+    window.location.hash = location;
+  }
+
   ngOnInit(): void {
 
     this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
