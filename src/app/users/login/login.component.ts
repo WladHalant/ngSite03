@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage.setItem('token', msg.token);
 
         //window.location.assign("http://93.170.123.54");
-        // window.location.hash = 'loginDIVid';
+         window.location.hash = 'loginDIVid';
       }
     })
   }

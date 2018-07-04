@@ -15,6 +15,8 @@ export class UnauthPanelComponent implements OnInit {
   }
 
   goAnchor() {
+    window.location.hash = 'outlet';
     window.location.hash = 'loginDIVid';
+
   }
 }
