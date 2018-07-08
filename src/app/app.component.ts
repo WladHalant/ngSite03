@@ -39,27 +39,28 @@ export class AppComponent implements OnInit{
 
   public searchGenre(event, genre) {
     this.router.navigate([``], { relativeTo: this.route });
-    let filterFilm: Film = new Film();
+    let filterFilm: Film = this.filmsService.filterFilm;
     filterFilm.genres = [genre];
-    this.filmsService.setfilterFilm(filterFilm);
+    // this.filmsService.setfilterFilm(filterFilm);
     this.filmsService.getFilms();
   }
 
   getFilmsForYear(event){
     this.router.navigate([``], { relativeTo: this.route });
-    let filmFilter: Film = new Film();
+    let filmFilter: Film  = this.filmsService.filterFilm;
 
     if(event.textContent != "Все") {
 
       this.year = event.textContent;
       filmFilter.year = Number(this.year);
-      this.filmsService.setfilterFilm(filmFilter);
+      // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
     }else {
 
       this.year = "Год";
-      this.filmsService.setfilterFilm(filmFilter);
+      // this.filmsService.setfilterFilm(filmFilter);
+      filmFilter.year = 0;
       this.filmsService.getFilms();
 
     }
@@ -67,19 +68,20 @@ export class AppComponent implements OnInit{
 
   getFilmsForCountry(event) {
     this.router.navigate([``], { relativeTo: this.route });
-    let filmFilter: Film = new Film();
+    let filmFilter: Film  = this.filmsService.filterFilm;
 
     if(event.textContent != "Все") {
 
       this.country = event.textContent;
       filmFilter.countries = [event.textContent];
-      this.filmsService.setfilterFilm(filmFilter);
+      // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
     }else {
 
       this.country = "Страна";
-      this.filmsService.setfilterFilm(filmFilter);
+      filmFilter.countries = [""];
+      // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
     }
