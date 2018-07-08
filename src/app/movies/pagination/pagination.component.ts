@@ -32,9 +32,10 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   public pageClick(event, page) {
     console.log('Open: ' + page);
-
+    window.scrollTo(0, 500);
     this.filmsService.goPage(page);
     this.currentPage = this.filmsService.currentPage;
+
   }
 
 }

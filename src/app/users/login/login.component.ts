@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    window.location.hash = 'outlet';
     this.subscription = this.userService.messageSubject.subscribe((msg)=>{
       console.log("status: " + msg.status);
       if (msg.status != 0){
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       }else {
         localStorage.setItem('token', msg.token);
 
-        //window.location.assign("http://93.170.123.54");
-         window.location.hash = 'loginDIVid';
+        window.location.assign("http://localhost:4200/");
+
       }
     })
   }

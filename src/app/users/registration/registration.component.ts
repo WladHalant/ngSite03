@@ -20,6 +20,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    window.location.hash = 'outlet';
     this.subscription = this.userService.messageSubject.subscribe((msg)=>{
       this.message = msg.status;
       this.edited=true;
