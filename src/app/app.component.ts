@@ -20,12 +20,9 @@ export class AppComponent implements OnInit{
   years: any;
   countries: any;
   country: any = "Страна";
+  activeGenre: string;
 
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute){}
-
-  goTo(location: string): void {
-    window.location.hash = location;
-  }
 
   ngOnInit(): void {
 
@@ -38,8 +35,10 @@ export class AppComponent implements OnInit{
   }
 
   public searchGenre(event, genre) {
+    console.log("GENRE: " + genre );
     this.router.navigate([``], { relativeTo: this.route });
     let filterFilm: Film = this.filmsService.filterFilm;
+    this.activeGenre = genre;
     filterFilm.genres = [genre];
     // this.filmsService.setfilterFilm(filterFilm);
     this.filmsService.getFilms();

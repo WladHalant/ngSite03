@@ -60,7 +60,7 @@
             <ul class="nav flex-column bg-dark p-3 border border-danger">
               <div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>
 
-              <li *ngFor="let genre of this.genres" class="nav-item">
+              <li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == genre}">
                 <a class="nav-link" href="#">{{genre}}</a>
               </li>
 
@@ -116,9 +116,11 @@
     <div class="col-sm-3 pt-3 sidebar-nav d-none d-lg-block"> <!-- d-none d-lg-block - эти классы сккрывают блок div на маленьком экране-->
       <ul class="nav flex-column bg-dark p-3 border border-danger">
 
-
-       <li *ngFor="let genre of this.genres" class="nav-item">
-         <a class="nav-link" [routerLink]="" (click)="searchGenre($event, genre)"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;{{genre}}</a>
+        <li class="nav-item" [ngClass]="{'active-genre': genre == activeGenre}">
+          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, genre)"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp; ВСЕ</a>
+        </li>
+       <li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == activeGenre}">
+         <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, genre)"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;{{genre}}</a>
         </li>
 
       </ul>
