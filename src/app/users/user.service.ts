@@ -2,11 +2,12 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Subject} from "rxjs/Subject";
 import {Comment} from "./comment";
+import {MyUrl} from "../my-url";
 
 @Injectable()
 export class UserService{
 
-  URL = "http://93.170.123.54/MovieServer/rest/users";
+  URL = MyUrl.URL + "/users";
   //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
   //URL = "http://localhost:8080/MovieServer/rest/users";
 
@@ -69,7 +70,7 @@ export class UserService{
 
     let commentJSON: Comment = new Comment(comment, this.token, id_film);
 
-    this.http.post("http://93.170.123.54/MovieServer/rest/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
+    this.http.post(MyUrl.URL + "/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
       (data: any[]) => {
 
         console.log(data);

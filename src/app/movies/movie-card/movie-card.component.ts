@@ -13,7 +13,7 @@ export class MovieCardComponent implements OnInit {
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
-    console.log("genres: " + this.film.actors.toString());
+
   }
 
   public searchGenre(event, genre) {
@@ -33,7 +33,7 @@ export class MovieCardComponent implements OnInit {
   searchActor($event, actor: string) {
     let filterFilm: Film = new Film();
     filterFilm.actors = [actor];
-    console.log("актер" + actor);
+
     this.filmsService.setfilterFilm(filterFilm);
     this.filmsService.getFilms();
   }

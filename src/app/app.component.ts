@@ -31,11 +31,11 @@ export class AppComponent implements OnInit{
       this.genres = lists.jsonAllGenres;
       this.years = lists.years;
       this.countries = lists.countries;
+
     });
   }
 
   public searchGenre(event, genre) {
-    console.log("GENRE: " + genre );
     this.router.navigate([``], { relativeTo: this.route });
     let filterFilm: Film = this.filmsService.filterFilm;
     this.activeGenre = genre;

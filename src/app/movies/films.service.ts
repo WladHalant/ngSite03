@@ -4,14 +4,13 @@ import {Film} from "./film";
 import {Subject} from "rxjs/Subject";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Lists} from "./Lists";
+import {MyUrl} from "../my-url";
 
 
 
 @Injectable()
 export class FilmsService {
-  URL = "http://93.170.123.54/MovieServer/rest/films";
-  //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/films";
-  //URL = "http://localhost:8080/MovieServer/rest/films";
+  URL = MyUrl.URL + "/films";
   films: Film[];
 
   public pageSubject: Subject<any>;
@@ -48,8 +47,7 @@ export class FilmsService {
 
 
   getFilms() {
-    console.log("JSON:");
-    console.log(JSON.stringify(this.filterFilm));
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -70,7 +68,7 @@ export class FilmsService {
     this.films=msg;
     this.pages = Math.ceil(this.films.length/this.numSelector);
     this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
-    // console.log(msg);
+
   }
 
   goPage(number: number){
