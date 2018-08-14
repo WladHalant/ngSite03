@@ -56,16 +56,16 @@
           </ul>
 
 
-          <div class="col-sm-3 pt-3 sidebar-nav d-lg-none"> <!-- d-lg-none - этот класс сккрывает блок div на большем экране-->
-            <ul class="nav flex-column bg-dark p-3 border border-danger">
-              <div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>
+         <!--<div class="col-sm-3 pt-3 sidebar-nav d-lg-none"> &lt;!&ndash; d-lg-none - этот класс сккрывает блок div на большем экране&ndash;&gt;-->
+            <!--<ul class="nav flex-column bg-dark p-3 border border-danger">-->
+              <!--<div class="ya-share2 p-3" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,twitter"></div>-->
 
-              <li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == genre}">
-                <a class="nav-link" href="#">{{genre}}</a>
-              </li>
+              <!--<li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == genre}">-->
+                <!--<a class="nav-link" href="#">{{genre}}</a>-->
+              <!--</li>-->
 
-            </ul>
-          </div>
+            <!--</ul>-->
+          <!--</div>-->
 
         </div>
 
@@ -95,18 +95,18 @@
             <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
           </div>
         </div>
-        <div class="btn-group p-1">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
-          </button>
-          <div class="dropdown-menu bg-danger">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </div>
+        <!--<div class="btn-group p-1">-->
+          <!--<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+            <!--Action-->
+          <!--</button>-->
+          <!--<div class="dropdown-menu bg-danger">-->
+            <!--<a class="dropdown-item" href="#">Action</a>-->
+            <!--<a class="dropdown-item" href="#">Another action</a>-->
+            <!--<a class="dropdown-item" href="#">Something else here</a>-->
+            <!--<div class="dropdown-divider"></div>-->
+            <!--<a class="dropdown-item" href="#">Separated link</a>-->
+          <!--</div>-->
+        <!--</div>-->
 
 
       </div>
@@ -114,7 +114,7 @@
   </div>
   <div class="row">
     <div class="col-sm-3 pt-3 sidebar-nav d-none d-lg-block"> <!-- d-none d-lg-block - эти классы сккрывают блок div на маленьком экране-->
-      <ul class="nav flex-column bg-dark p-3 border border-danger">
+      <ul class="nav flex-column bg-dark p-1 border border-danger">
 
         <li class="nav-item" [ngClass]="{'active-genre': 'ВСЕ' == activeGenre}">
           <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'ВСЕ')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp; ВСЕ</a>
