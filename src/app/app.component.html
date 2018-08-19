@@ -52,7 +52,10 @@
             <li class="nav-item">
               <button type="button" class=" btn btn-success my-2 mr-sm-2"><i class="fa fa-fire"></i>&nbsp;&nbsp;Новинки мультфильмов</button>
             </li>
+            <div class="form-inline my-2 my-lg-0">
+              <app-search class="mr-sm-auto"></app-search>
 
+            </div>
           </ul>
 
 
@@ -69,44 +72,25 @@
 
         </div>
 
-        <div class="form-inline my-2 my-lg-0">
-          <app-search class="mr-sm-2"></app-search>
 
-        </div>
 
       </nav>
-      <div class="col-sm-12 p-2 bg-dark text-white">
-        Сортировать по:
-        <div class="btn-group p-1">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{year}}
-          </button>
-          <div class="dropdown-menu bg-danger">
-            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
-            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
-          </div>
-        </div>
-        <div class="btn-group p-1">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{country}}
-          </button>
-          <div class="dropdown-menu bg-danger">
+      <div class="col-sm-12 p-3 bg-dark">
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Страны<span class="caret"></span></button>
+          <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
             <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
-          </div>
+          </ul>
         </div>
-        <!--<div class="btn-group p-1">-->
-          <!--<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-            <!--Action-->
-          <!--</button>-->
-          <!--<div class="dropdown-menu bg-danger">-->
-            <!--<a class="dropdown-item" href="#">Action</a>-->
-            <!--<a class="dropdown-item" href="#">Another action</a>-->
-            <!--<a class="dropdown-item" href="#">Something else here</a>-->
-            <!--<div class="dropdown-divider"></div>-->
-            <!--<a class="dropdown-item" href="#">Separated link</a>-->
-          <!--</div>-->
-        <!--</div>-->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Год<span class="caret"></span></button>
+          <ul class="dropdown-menu scrollable-menu" role="menu">
+            <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
+            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
+          </ul>
+        </div>
 
 
       </div>
@@ -114,7 +98,7 @@
   </div>
   <div class="row">
     <div class="col-sm-3 pt-3 sidebar-nav d-none d-lg-block"> <!-- d-none d-lg-block - эти классы сккрывают блок div на маленьком экране-->
-      <ul class="nav flex-column bg-dark p-1 border border-danger">
+      <ul class="nav flex-column bg-dark p-0 border border-danger">
 
         <li class="nav-item" [ngClass]="{'active-genre': 'ВСЕ' == activeGenre}">
           <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'ВСЕ')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp; ВСЕ</a>

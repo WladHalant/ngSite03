@@ -2,10 +2,10 @@
   <div class="col-md-12 bg-dark text-white pt-3">
     <h3>{{film.name}}</h3>
   </div>
-  <div class="col-md-3 p-0 avatars bg-dark">
+  <div class="col-md-3 p-3 avatars bg-dark shadow-lg">
 
     <a [routerLink]="['player',film.id]" data-tooltip="Person 1" data-placement="top">
-      <img alt="Poster" src={{film.poster}} class="card-img-top">
+      <img alt="Poster" src={{film.poster}} class="card-img-top rounded">
     </a>
     <div class=" bg-dark p-3">
       <a [routerLink]="['player',film.id]" class="btn btn-danger btn-block">Смотреть</a>

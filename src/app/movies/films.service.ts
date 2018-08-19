@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import "rxjs/add/observable/dom/webSocket";
-import {Film} from "./film";
-import {Subject} from "rxjs/Subject";
+import 'rxjs/add/observable/dom/webSocket';
+import {Film} from './film';
+import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Lists} from "./Lists";
-import {MyUrl} from "../my-url";
+import {Lists} from './Lists';
+import {MyUrl} from '../my-url';
 
 
 
 @Injectable()
 export class FilmsService {
-  URL = MyUrl.URL + "/films";
+  URL = MyUrl.URL + '/films';
   films: Film[];
 
   public pageSubject: Subject<any>;
   public pages: number;
   public currentPage: number;
-  private numSelector: number = 3;
+  private numSelector = 3;
   public listFilmsSubject: Subject<any>;
   public listsSubject: Subject<any>;
   public filterFilm: Film;
@@ -33,16 +33,16 @@ export class FilmsService {
     this.getListGenres();
   }
 
-  setfilterFilm(filterFilm: Film){
+  setfilterFilm(filterFilm: Film) {
     this.filterFilm = filterFilm;
   }
 
-  getListGenres(){
+  getListGenres() {
     this.http.get(this.URL).subscribe(
-      (data:any[])=> {
-        this.listsSubject.next(data)
+      (data: any[]) => {
+        this.listsSubject.next(data);
       }
-    )
+    );
   }
 
 
@@ -62,19 +62,19 @@ export class FilmsService {
     );
   }
 
-  parseAnswer(msg){
-    this.pages = 0;
+  parseAnswer(msg) {
+    // this.pages = 0;
     this.currentPage = 0;
-    this.films=msg;
-    this.pages = Math.ceil(this.films.length/this.numSelector);
+    this.films = msg;
+    this.pages = Math.ceil(this.films.length / this.numSelector);
     this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
 
   }
 
-  goPage(number: number){
-    this.pageSubject.next(this.films.slice(((number-1) * this.numSelector), ((number-1)*3)+(this.numSelector) ));
+  goPage(number: number) {
+    this.pageSubject.next(this.films.slice(((number - 1) * this.numSelector), ((number - 1) * 3) + (this.numSelector) ));
 
-    this.currentPage = number -1;
+    this.currentPage = number - 1;
   }
 }
 

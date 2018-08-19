@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FilmsService} from "../films.service";
-import {Subscription} from "rxjs/Subscription";
+import {FilmsService} from '../films.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-pagination',
@@ -9,20 +9,25 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class PaginationComponent implements OnInit, OnDestroy {
 
-  numbers:number[];
+  numbersActive: number[];
+  maxPage: number;
   private subscription: Subscription;
   public currentPage: number;
+  private numbers: Array<number>;
 
   constructor(private filmsService: FilmsService) { }
 
 
 
-  ngOnInit(){
-    this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
-      this.numbers = Array.from({ length: this.filmsService.pages }, (v, k) => k+1);
+  ngOnInit() {
 
+    this.subscription = this.filmsService.pageSubject.subscribe((msg) => {
+      this.maxPage = this.filmsService.pages;
+      this.numbers = Array.from({ length: this.filmsService.pages }, (v, k) => k + 1);
+      // this.numbersActive = Array.from({ length: this.filmsService.pages > 10 ? 10 : this.filmsService.pages }, (v, k) => k + 1);
+      this.numbersActive = this.numbers.splice(0, 10);
       this.currentPage = this.filmsService.currentPage;
-    })
+    });
 
   }
 

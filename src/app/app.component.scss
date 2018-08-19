@@ -1,3 +1,27 @@
+li > a:hover,
+li > span:focus,
+li > span:hover {
+  z-index: 3;
+  color: grey;
+  background-color: #1e262d;
+
+}
+li > a {
+  z-index: 3;
+  color: grey;
+  background-color: #30363B;
+  border-color: #ffffff;
+}
+.dropdown-menu
+{
+background-color: #1e262d;
+color: white;
+}
+.dropdown-menu > a:hover
+{
+background-color: grey;
+
+}
 
 
 .pagination > li > a:focus
@@ -127,4 +151,10 @@
 
 .active-genre{
   background: #c82333;
+
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 300px;
+    overflow-x: hidden;
 }
