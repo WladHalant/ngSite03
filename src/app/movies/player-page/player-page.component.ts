@@ -49,5 +49,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   Commenting() {
     this.userService.sendComment(this.comment, this.filmID);
     this.comment = "";
+
+
   }
 }

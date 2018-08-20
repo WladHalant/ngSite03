@@ -17,14 +17,14 @@
           </span>
         </li>
 
-        <li class="page-item" *ngIf="!(pages > 10)">
+        <li class="page-item" *ngIf="(pages > 10 && pages != currentPage+1 )">
           <a class="page-link">
             ...
           </a>
         </li>
 
 
-        <li class="page-item" *ngIf="!(pages > 10)">
+        <li class="page-item" *ngIf="(pages > 10)" [ngClass]="{'active': pages==currentPage+1}">
           <a *ngIf="!(maxPage==currentPage+1)" (click)="pageClick($event, maxPage)" class="page-link">
           {{maxPage}}
           </a>
