@@ -1,3 +1,5 @@
+import {Comment} from "../users/comment";
+
 export class Film {
   public id: number = 0;
   public name: string = "";

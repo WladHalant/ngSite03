@@ -4,6 +4,8 @@ import {Film} from "../film";
 import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 import {UserService} from "../../users/user.service";
+import {Comment} from "../../users/comment";
+import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-player-page',
@@ -53,19 +55,26 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   Commenting() {
     this.userService.sendComment(this.comment, this.filmID);
+
+    let newComment: Comment = new Comment(this.comment, "", this.filmID);
+    newComment.comment = this.comment;
+    newComment.date = Date.now().toString();
+    newComment.name = this.userService.name;
+    this.film.comments.push(newComment);
     this.comment = "";
-    this.subscription.unsubscribe();
-
-
-    this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
-      let films: any = msg;
-      this.film.comments = films[0].comments;
-      this.subscription.unsubscribe();
-      this.sub();
-
-    });
-
-    this.filmsService.getFilms();
+    // this.subscription.unsubscribe();
+    //
+    //
+    // this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
+    //   let films: any = msg;
+    //   this.film.comments = films[0].comments;
+    //   console.log("comments" + this.film.comments);
+    //   this.subscription.unsubscribe();
+    //   this.sub();
+    //
+    // });
+    //
+    // this.filmsService.getFilms();
 
   }
 }
