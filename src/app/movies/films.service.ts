@@ -62,6 +62,8 @@ export class FilmsService {
     );
   }
 
+
+
   parseAnswer(msg) {
     // this.pages = 0;
     this.currentPage = 0;

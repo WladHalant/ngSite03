@@ -25,12 +25,9 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   ngOnInit(){
 
 
-    this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
-      let films: any = msg;
-      this.film = films[0];
+    this.sub();
 
 
-    });
 
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
@@ -42,6 +39,14 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   }
 
+  sub(){
+    this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
+      let films: any = msg;
+      this.film = films[0];
+
+
+    });
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -49,7 +54,18 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   Commenting() {
     this.userService.sendComment(this.comment, this.filmID);
     this.comment = "";
+    this.subscription.unsubscribe();
 
+
+    this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
+      let films: any = msg;
+      this.film.comments = films[0].comments;
+      this.subscription.unsubscribe();
+      this.sub();
+
+    });
+
+    this.filmsService.getFilms();
 
   }
 }
