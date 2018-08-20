@@ -60,6 +60,8 @@ export class FilmsService {
 
       }
     );
+
+    this.filterFilm.name = "";
   }
 
 

@@ -31,7 +31,7 @@
         </a>
       </div>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><img alt="logo" src="https://besplatnyeprogrammy.net/images/jdownloads/fileimages/X-Codec-Pack-Logo.png" class="card-img-top"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -78,14 +78,14 @@
       <div class="col-sm-12 p-3 bg-dark">
 
         <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Страны<span class="caret"></span></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{country}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
             <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
           </ul>
         </div>
         <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Год<span class="caret"></span></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{year}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
             <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>

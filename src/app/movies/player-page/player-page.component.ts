@@ -60,7 +60,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     newComment.comment = this.comment;
     newComment.date = Date.now().toString();
     newComment.name = this.userService.name;
-    this.film.comments.push(newComment);
+    this.film.comments.unshift(newComment);
     this.comment = "";
     // this.subscription.unsubscribe();
     //

@@ -3,10 +3,12 @@ import {UnauthPanelComponent} from "../unauth-panel/unauth-panel.component";
 import {Subscription} from "rxjs/Subscription";
 import {UserService} from "../user.service";
 import {Router} from "@angular/router";
+import {AuthPanelComponent} from "../auth-panel/auth-panel.component";
 
 @Component({
   selector: 'app-container-panel-auth',
   templateUrl: './container-panel-auth.component.html',
+  entryComponents: [ UnauthPanelComponent, AuthPanelComponent ],
   styleUrls: ['./container-panel-auth.component.scss']
 })
 export class ContainerPanelAuthComponent implements OnInit, OnDestroy {
