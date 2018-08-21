@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, Input, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import {Film} from "../film";
 import {FilmsService} from "../films.service";
@@ -6,6 +6,7 @@ import {Subscription} from "rxjs/Subscription";
 import {UserService} from "../../users/user.service";
 import {Comment} from "../../users/comment";
 import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-player-page',
@@ -19,7 +20,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   filmID: number;
   comment: string = "";
 
-  constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService, private userService: UserService) {
+  constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService, private userService: UserService, @Inject(LOCALE_ID) private locale: string) {
     this.filmID = activateRoute.snapshot.params['filmID'];
 
   }
@@ -58,7 +59,9 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
     let newComment: Comment = new Comment(this.comment, "", this.filmID);
     newComment.comment = this.comment;
-    newComment.date = Date.now().toString();
+    // let datePipe = new DatePipe('ru-RU');
+    // let setDob = datePipe.transform(Date.now(), 'yyyy-MM-dd hh:mm:ss');
+    newComment.date = Date.now().toString()/*setDob*/;
     newComment.name = this.userService.name;
     this.film.comments.unshift(newComment);
     this.comment = "";
