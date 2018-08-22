@@ -53,7 +53,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   sub(){
     this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
-      let films: any = msg;
+      let films: any = msg; //C
       this.film = films[0];
     });
   }
