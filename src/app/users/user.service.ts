@@ -16,10 +16,12 @@ export class UserService{
   public authSubject: Subject<any>;
   public name: string;
   public statusAuth = 0;
+  public commentStatus: Subject<any>;
+
   constructor(private http: HttpClient) {
     this.messageSubject = new Subject();
     this.authSubject = new Subject();
-
+    this.commentStatus = new Subject();
     this.token = localStorage.getItem('token');
     console.log(this.token);
 
@@ -74,6 +76,7 @@ export class UserService{
       (data: any[]) => {
 
         console.log(data);
+        this.commentStatus.next(data);
 
       }
     );

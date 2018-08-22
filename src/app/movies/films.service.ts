@@ -19,6 +19,7 @@ export class FilmsService {
   public numSelector = 3;
   public listFilmsSubject: Subject<any>;
   public listsSubject: Subject<any>;
+
   public filterFilm: Film;
   public lists: Lists;
 
@@ -73,14 +74,11 @@ export class FilmsService {
     this.pages = Math.ceil(this.films.length / this.numSelector);
     this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
 
-
   }
 
   goPage(number: number) {
     this.currentPage = number - 1;
     this.pageSubject.next(this.films.slice(((number - 1) * this.numSelector), ((number - 1) * 3) + (this.numSelector) ));
-
-
   }
 }
 

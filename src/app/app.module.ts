@@ -25,6 +25,9 @@ import { ContainerPanelAuthComponent } from './users/container-panel-auth/contai
 import { UnauthPanelComponent } from './users/unauth-panel/unauth-panel.component';
 import { AuthPanelComponent } from './users/auth-panel/auth-panel.component';
 
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 const routes = [
   {path: '', component: FrontPageComponent},
   {path: 'player/:filmID', component: PlayerPageComponent},
@@ -61,7 +64,10 @@ const routes = [
     FormsModule,
     AutoCompleteModule,
     TabViewModule,
-    CodeHighlighterModule
+    CodeHighlighterModule,
+
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

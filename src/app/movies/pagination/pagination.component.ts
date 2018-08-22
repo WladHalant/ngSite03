@@ -44,7 +44,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   biganPages(){
     let index: number;
     index = this.numbers.length - this.currentPage+1;
-    if (index < 10 ) return (this.currentPage+1 - (10-index)) - this.numSelector;
+    if (index > 10 ) return (this.currentPage+1 - (10-index)) - this.numSelector;
     return this.currentPage+1 > this.numSelector ? this.currentPage+1 - this.numSelector : 0
   }
 

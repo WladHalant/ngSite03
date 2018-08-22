@@ -5,8 +5,9 @@ import {FilmsService} from "../films.service";
 import {Subscription} from "rxjs/Subscription";
 import {UserService} from "../../users/user.service";
 import {Comment} from "../../users/comment";
-import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
-import {DatePipe} from "@angular/common";
+
+import {Message} from "primeng/api";
+
 
 @Component({
   selector: 'app-player-page',
@@ -16,9 +17,12 @@ import {DatePipe} from "@angular/common";
 export class PlayerPageComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
+  subscriptionCommentStatus: Subscription;
   film: Film;
   filmID: number;
   comment: string = "";
+  msgs: Message[] = [];
+  private newComment: Comment;
 
   constructor(private activateRoute: ActivatedRoute, private filmsService: FilmsService, private userService: UserService, @Inject(LOCALE_ID) private locale: string) {
     this.filmID = activateRoute.snapshot.params['filmID'];
@@ -27,11 +31,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
 
-
     this.sub();
-
-
-
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
@@ -40,16 +40,24 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     this.filmsService.getFilms();
     filmFilter.id = 0;
 
+    this.subscriptionCommentStatus = this.userService.commentStatus.subscribe((status)=> {
+      // console.log("status:" + JSON.parse(status));
+      console.log(status.status);
+
+      if(status.status == 1){
+        this.msgs = [];
+        this.msgs.push({severity:'error', summary:'Error Message', detail:'Не Удалось отправить комментарий, пожалуйста авторизируйтесь'});
+      }else if (status.status ==0) this.film.comments.unshift(this.newComment);
+    });
   }
 
   sub(){
     this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
       let films: any = msg;
       this.film = films[0];
-
-
     });
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -57,13 +65,13 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   Commenting() {
     this.userService.sendComment(this.comment, this.filmID);
 
-    let newComment: Comment = new Comment(this.comment, "", this.filmID);
-    newComment.comment = this.comment;
+    this.newComment = new Comment(this.comment, "", this.filmID);
+    this.newComment.comment = this.comment;
     // let datePipe = new DatePipe('ru-RU');
     // let setDob = datePipe.transform(Date.now(), 'yyyy-MM-dd hh:mm:ss');
-    newComment.date = Date.now().toString()/*setDob*/;
-    newComment.name = this.userService.name;
-    this.film.comments.unshift(newComment);
+    this.newComment.date = Date.now().toString()/*setDob*/;
+    this.newComment.name = this.userService.name;
+
     this.comment = "";
     // this.subscription.unsubscribe();
     //
