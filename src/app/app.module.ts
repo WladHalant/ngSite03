@@ -27,6 +27,7 @@ import { AuthPanelComponent } from './users/auth-panel/auth-panel.component';
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import { SafePipe } from './movies/safe-pipe.pipe';
 
 const routes = [
   {path: '', component: FrontPageComponent},
@@ -52,7 +53,8 @@ const routes = [
     ProfileComponent,
     ContainerPanelAuthComponent,
     UnauthPanelComponent,
-    AuthPanelComponent
+    AuthPanelComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

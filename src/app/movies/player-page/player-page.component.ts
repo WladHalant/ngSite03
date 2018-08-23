@@ -55,6 +55,7 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
     this.subscription = this.filmsService.pageSubject.subscribe((msg)=>{
       let films: any = msg; //C
       this.film = films[0];
+      console.log("pat: " + this.film.path)
     });
   }
 

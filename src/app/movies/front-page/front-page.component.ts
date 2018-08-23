@@ -22,7 +22,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
     });
     this.filmsService.getFilms();
 
-
   }
 
   ngOnDestroy() {
