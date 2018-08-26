@@ -1,15 +1,15 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Subject} from "rxjs/Subject";
-import {Comment} from "./comment";
-import {MyUrl} from "../my-url";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Subject} from 'rxjs/Subject';
+import {Comment} from './comment';
+import {MyUrl} from '../my-url';
 
 @Injectable()
-export class UserService{
+export class UserService {
 
-  URL = MyUrl.URL + "/users";
-  //URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
-  //URL = "http://localhost:8080/MovieServer/rest/users";
+  URL = MyUrl.URL + '/users';
+  // URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
+  // URL = "http://localhost:8080/MovieServer/rest/users";
 
   token: string;
   public messageSubject: Subject<any>;
@@ -27,15 +27,15 @@ export class UserService{
 
     let body = new HttpParams();
     body = body.set('password', this.token);
-    this.http.post(this.URL + "/chekToken", body).subscribe(
+    this.http.post(this.URL + '/chekToken', body).subscribe(
       (response: any) => {
 
-        if (response.status != 0){
+        if (response.status !== 0) {
           this.statusAuth = 0;
           this.authSubject.next();
-        }else {
+        } else {
           this.name = response.name;
-          console.log("User name: " + this.name);
+          console.log('User name: ' + this.name);
           this.statusAuth = 1;
           this.authSubject.next(this.name);
 
@@ -46,13 +46,14 @@ export class UserService{
 
   }
 
-  authorization(USERNAME: string, PASSWORD: string, EMAIL: string, command: string) {
+  authorization(USERNAME: string, PASSWORD: string, EMAIL: string, command: string, TOKEN: string) {
 
 
     let body = new HttpParams();
     body = body.set('username', USERNAME);
     body = body.set('password', PASSWORD);
     body = body.set('email',    EMAIL);
+    body = body.set('token',    TOKEN);
 
     this.http.post(this.URL + command, body).subscribe(
       (response: any) => {
@@ -62,7 +63,7 @@ export class UserService{
     );
   }
 
-  sendComment(comment: string, id_film: number){
+  sendComment(comment: string, id_film: number) {
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -70,9 +71,9 @@ export class UserService{
       })
     };
 
-    let commentJSON: Comment = new Comment(comment, this.token, id_film);
+    const commentJSON: Comment = new Comment(comment, this.token, id_film);
 
-    this.http.post(MyUrl.URL + "/comment", JSON.stringify(commentJSON), httpOptions).subscribe(
+    this.http.post(MyUrl.URL + '/comment', JSON.stringify(commentJSON), httpOptions).subscribe(
       (data: any[]) => {
 
         console.log(data);
@@ -93,7 +94,7 @@ export class UserService{
 
     let body = new HttpParams();
     body = body.set('password', this.token);
-    this.http.post(this.URL + "/logout", body).subscribe(
+    this.http.post(this.URL + '/logout', body).subscribe(
       () => {}
     );
 

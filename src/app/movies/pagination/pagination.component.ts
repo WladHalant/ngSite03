@@ -34,18 +34,19 @@ export class PaginationComponent implements OnInit, OnDestroy {
       this.numbersActive = this.numbers.splice( this.biganPages(), 10);
 
       console.log(this.numbersActive);
-      console.log("numSelector: " + this.numSelector + " currentPage: " + this.currentPage);
-      console.log("Pages: " + this.pages);
+      console.log('numSelector: ' + this.numSelector + ' currentPage: ' + this.currentPage);
+      console.log('Pages: ' + this.pages);
 
     });
 
   }
 
-  biganPages(){
+  biganPages() {
     let index: number;
-    index = this.numbers.length - this.currentPage+1;
-    if (index > 10 ) return (this.currentPage+1 - (10-index)) - this.numSelector;
-    return this.currentPage+1 > this.numSelector ? this.currentPage+1 - this.numSelector : 0
+    index = this.numbers.length - this.currentPage + 1;
+    if (this.numbers.length < 10) { return 0; }
+    if (index < 10 ) { return (this.currentPage + 1 - (10 - index)) - this.numSelector; }
+    return this.currentPage + 1 > this.numSelector ? this.currentPage + 1 - this.numSelector : 0;
   }
 
   ngOnDestroy() {

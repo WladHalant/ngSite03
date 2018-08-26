@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from "../user.service";
-import {Subscription} from "rxjs/Subscription";
+import {UserService} from '../user.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-registration',
@@ -21,22 +21,23 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     window.location.hash = 'outlet';
-    this.subscription = this.userService.messageSubject.subscribe((msg)=>{
+    this.subscription = this.userService.messageSubject.subscribe((msg) => {
       this.message = msg.status;
-      this.edited=true;
+      if ( 2 === msg.status) { this.message = 'Неверные параметры'; }
+      this.edited = true;
 
      // window.location.reload();
-    })
+    });
 
   }
 
   registration() {
 
-    if(this.pass === this.rePass)
-      this.userService.authorization(this.name, this.pass, this.email, "/add");
-    else{
-      this.message = "Пароли не совпадают";
-      this.edited=true;
+    if (this.pass === this.rePass) {
+      this.userService.authorization(this.name, this.pass, this.email, '/add', '');
+    } else {
+      this.message = 'Пароли не совпадают';
+      this.edited = true;
     }
   }
 
