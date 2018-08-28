@@ -19,7 +19,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Изменить имя" type="email" [(ngModel)]="name">
+            <input name="" class="form-control" placeholder="Изменить имя" type="email" ngDefaultControl name="text" [(ngModel)]="name">
           </div>
         </div>
         <div class="form-group">
@@ -27,7 +27,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Адрес эл.почты" type="email" [(ngModel)]="email">
+            <input name="" class="form-control" placeholder="Адрес эл.почты" type="email" name="text" [(ngModel)]="email">
           </div>
         </div>
         <div class="form-group">
@@ -35,7 +35,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" placeholder="Пароль" type="password" [(ngModel)]="pass">
+            <input class="form-control" placeholder="Пароль" type="password" name="text" [(ngModel)]="pass">
           </div>
         </div>
         <div class="form-group">
@@ -43,7 +43,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" placeholder="Повторить пароль" type="password" [(ngModel)]="rePass">
+            <input class="form-control" placeholder="Повторить пароль" type="password" name="text" [(ngModel)]="rePass">
           </div>
         </div>
         <div class="form-group">

@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class PaginationComponent implements OnInit, OnDestroy {
 
+  length: number = 8;
   numbersActive: number[];
   pages: number;
   maxPage: number;
@@ -31,7 +32,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
       this.maxPage = this.filmsService.pages;
       this.numbers = Array.from({ length: this.filmsService.pages }, (v, k) => k + 1);
       this.currentPage = this.filmsService.currentPage;
-      this.numbersActive = this.numbers.splice( this.biganPages(), 10);
+      this.numbersActive = this.numbers.splice( this.biganPages(), this.length);
 
       console.log(this.numbersActive);
       console.log('numSelector: ' + this.numSelector + ' currentPage: ' + this.currentPage);
@@ -44,8 +45,8 @@ export class PaginationComponent implements OnInit, OnDestroy {
   biganPages() {
     let index: number;
     index = this.numbers.length - this.currentPage + 1;
-    if (this.numbers.length < 10) { return 0; }
-    if (index < 10 ) { return (this.currentPage + 1 - (10 - index)) - this.numSelector; }
+    if (this.numbers.length < this.length) { return 0; }
+    if (index < this.length ) { return (this.currentPage + 1 - (this.length - index)) - this.numSelector; }
     return this.currentPage + 1 > this.numSelector ? this.currentPage + 1 - this.numSelector : 0;
   }
 
@@ -56,7 +57,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   public pageClick(event, page) {
     console.log('Open: ' + page);
     window.scrollTo(0, 500);
-    // this.numbersActive = this.numbers.splice( page > this.numSelector ? page - this.numSelector : 0, 10);
+    // this.numbersActive = this.numbers.splice( page > this.numSelector ? page - this.numSelector : 0, this.length);
     // console.log(this.numbersActive);
     this.filmsService.goPage(page);
     this.currentPage = this.filmsService.currentPage;
