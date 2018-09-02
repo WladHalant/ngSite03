@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active ">
-              <button type="button" class=" btn btn-success my-2 mr-sm-2"><i class="fa fa-fire"></i>&nbsp;&nbsp;Новинки фильмов</button>
+              <button type="button" class=" btn btn-success my-2 mr-sm-2" (click)="getNewFilm()"><i class="fa fa-fire"></i>&nbsp;&nbsp;Новинки фильмов</button>
 
 
             </li>
@@ -50,7 +50,7 @@
 
             </li>
             <li class="nav-item">
-              <button type="button" class=" btn btn-success my-2 mr-sm-2"><i class="fa fa-fire"></i>&nbsp;&nbsp;Новинки мультфильмов</button>
+              <button type="button" class=" btn btn-success my-2 mr-sm-2" (click)="getNewCartoon()"><i class="fa fa-fire" ></i>&nbsp;&nbsp;Новинки мультфильмов</button>
             </li>
             <div class="form-inline my-2 my-lg-0">
               <app-search class="mr-sm-auto"></app-search>

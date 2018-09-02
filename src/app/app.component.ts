@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FilmsService} from './movies/films.service';
-import {Film} from "./movies/film";
-import {Subscription} from "rxjs/Subscription";
-import {Lists} from "./movies/Lists";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "./users/user.service";
+import {Film} from './movies/film';
+import {Subscription} from 'rxjs/Subscription';
+import {Lists} from './movies/Lists';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from './users/user.service';
 
 
 @Component({
@@ -13,21 +13,21 @@ import {UserService} from "./users/user.service";
   styleUrls: ['./app.component.scss'],
   providers: [FilmsService, UserService]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   private subscription: Subscription;
   genres: any;
-  year: any = "Год";
+  year: any = 'Год';
   years: any;
   countries: any;
-  country: any = "Страна";
-  activeGenre: string = "ВСЕ";
+  country: any = 'Страна';
+  activeGenre = 'ВСЕ';
 
-  constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute){}
+  constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
 
-    this.subscription = this.filmsService.listsSubject.subscribe((msg)=>{
-      let lists: Lists =  msg;
+    this.subscription = this.filmsService.listsSubject.subscribe((msg) => {
+      const lists: Lists =  msg;
       this.genres = lists.jsonAllGenres;
       this.years = lists.years;
       this.countries = lists.countries;
@@ -37,27 +37,27 @@ export class AppComponent implements OnInit{
 
   public searchGenre(event, genre) {
     this.router.navigate([``], { relativeTo: this.route });
-    let filterFilm: Film = this.filmsService.filterFilm;
+    const filterFilm: Film = this.filmsService.filterFilm;
     this.activeGenre = genre;
-    genre != "ВСЕ" ? filterFilm.genres = [genre] : filterFilm.genres = [""] ;
+    genre !== 'ВСЕ' ? filterFilm.genres = [genre] : filterFilm.genres = [''] ;
     // this.filmsService.setfilterFilm(filterFilm);
     this.filmsService.getFilms();
   }
 
-  getFilmsForYear(event){
+  getFilmsForYear(event) {
     this.router.navigate([``], { relativeTo: this.route });
-    let filmFilter: Film  = this.filmsService.filterFilm;
+    const filmFilter: Film  = this.filmsService.filterFilm;
 
-    if(event.textContent != "Все") {
+    if (event.textContent !== 'Все') {
 
       this.year = event.textContent;
       filmFilter.year = Number(this.year);
       // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
-    }else {
+    } else {
 
-      this.year = "Год";
+      this.year = 'Год';
       // this.filmsService.setfilterFilm(filmFilter);
       filmFilter.year = 0;
       this.filmsService.getFilms();
@@ -67,22 +67,43 @@ export class AppComponent implements OnInit{
 
   getFilmsForCountry(event) {
     this.router.navigate([``], { relativeTo: this.route });
-    let filmFilter: Film  = this.filmsService.filterFilm;
+    const filmFilter: Film  = this.filmsService.filterFilm;
 
-    if(event.textContent != "Все") {
+    if (event.textContent != 'Все') {
 
       this.country = event.textContent;
       filmFilter.countries = [event.textContent];
       // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
-    }else {
+    } else {
 
-      this.country = "Страна";
-      filmFilter.countries = [""];
+      this.country = 'Страна';
+      filmFilter.countries = [''];
       // this.filmsService.setfilterFilm(filmFilter);
       this.filmsService.getFilms();
 
     }
+  }
+
+  getNewFilm() {
+    this.router.navigate([``], { relativeTo: this.route });
+    const filmFilter: Film  = this.filmsService.filterFilm;
+    filmFilter.year = Number('2018');
+    filmFilter.genres = [''];
+
+
+  }
+
+  getNewCartoon() {
+    console.log('getNewCartoon');
+    this.router.navigate([``], { relativeTo: this.route });
+    const filmFilter: Film  = this.filmsService.filterFilm;
+    filmFilter.year = Number('2018');
+    filmFilter.genres = ['Мультфильм'];
+    this.filmsService.getFilms();
+
+    filmFilter.year = 0;
+    filmFilter.genres = [""];
   }
 }
