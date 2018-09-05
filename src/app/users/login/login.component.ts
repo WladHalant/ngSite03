@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage.setItem('token', msg.token);
 
         const url = new URL(MyUrl.URL);
-        window.location.assign(url.host);
+        window.location.assign("/");
+
 
       }
     });
