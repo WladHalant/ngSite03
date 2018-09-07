@@ -86,10 +86,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getNewFilm() {
+  getNewFilms() {
     this.router.navigate([``], { relativeTo: this.route });
     const filmFilter: Film  = this.filmsService.filterFilm;
     filmFilter.year = Number('2018');
+    filmFilter.antiGenres = ['Мультфильм'];
+    this.filmsService.getFilms();
+
+    filmFilter.year = 0;
     filmFilter.genres = [''];
 
 
@@ -104,6 +108,6 @@ export class AppComponent implements OnInit {
     this.filmsService.getFilms();
 
     filmFilter.year = 0;
-    filmFilter.genres = [""];
+    filmFilter.genres = [''];
   }
 }

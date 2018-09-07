@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         const url = new URL(MyUrl.URL);
         window.location.assign("/");
-
-
       }
     });
   }
