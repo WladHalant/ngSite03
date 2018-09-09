@@ -97,9 +97,9 @@
           </ul>
         </div>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">{{genre}}<span class="caret"></span></button>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">{{activeGenre}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
-            <a class="dropdown-item" (click)="searchGenre($event, genre)">Все</a>
+            <a class="dropdown-item" (click)="searchGenre($event, 'Все')">Все</a>
             <a *ngFor="let genre of this.genres" class="dropdown-item" (click)="searchGenre($event, genre)">{{genre}}</a>
           </ul>
         </div>
@@ -113,7 +113,7 @@
       <ul class="nav flex-column bg-dark p-0">
 
         <li class="nav-item" [ngClass]="{'active-genre': 'ВСЕ' == activeGenre}">
-          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'ВСЕ')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp; ВСЕ</a>
+          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'ВСЕ')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;Все</a>
         </li>
        <li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == activeGenre}">
          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, genre)"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;{{genre}}</a>

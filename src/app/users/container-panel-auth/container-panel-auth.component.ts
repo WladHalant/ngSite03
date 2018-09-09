@@ -1,9 +1,9 @@
 import {Component, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, Type, OnInit, OnDestroy} from '@angular/core';
-import {UnauthPanelComponent} from "../unauth-panel/unauth-panel.component";
-import {Subscription} from "rxjs/Subscription";
-import {UserService} from "../user.service";
-import {Router} from "@angular/router";
-import {AuthPanelComponent} from "../auth-panel/auth-panel.component";
+import {UnauthPanelComponent} from '../unauth-panel/unauth-panel.component';
+import {Subscription} from 'rxjs/Subscription';
+import {UserService} from '../user.service';
+import {AuthPanelComponent} from '../auth-panel/auth-panel.component';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-container-panel-auth',
@@ -12,38 +12,53 @@ import {AuthPanelComponent} from "../auth-panel/auth-panel.component";
   styleUrls: ['./container-panel-auth.component.scss']
 })
 export class ContainerPanelAuthComponent implements OnInit, OnDestroy {
-
-  @ViewChild('containerPanelAuthComponent', {read: ViewContainerRef}) containerPanelAuthComponent: ViewContainerRef;
-  private authRef: ComponentRef<any>;
   subscription: Subscription;
 
-  constructor(private resolver: ComponentFactoryResolver, private userService: UserService) { }
+  text_1: string;
+  text_2: string;
+  statusAuth = 0;
+  name: any;
+
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.subscription = this.userService.authSubject.subscribe((msg)=>{
-      if (this.userService.statusAuth == 0) this.unAuth();
-      else this.auth();
-    })
+    this.subscription = this.userService.authSubject.subscribe((msg) => {
+      this.statusAuth = this.userService.statusAuth;
+      if (this.userService.statusAuth === 0) { this.unAuth(); } else { this.auth(); }
+    });
   }
 
-  unAuth(){
-    let factories = Array.from(this.resolver['_factories'].keys());
-    let factoryClass = <Type<any>> factories.find((factory: any) => factory.name === 'UnauthPanelComponent');
-    let unauthPanelComponentComponentFactory = this.resolver.resolveComponentFactory(factoryClass);
-    this.authRef = this.containerPanelAuthComponent.createComponent(unauthPanelComponentComponentFactory);
+  unAuth() {
+    this.text_1 = 'Вход';
+    this.text_2 = 'Регистрация';
   }
 
-  auth(){
-    let factories = Array.from(this.resolver['_factories'].keys());
-    let factoryClass = <Type<any>> factories.find((factory: any) => factory.name === 'AuthPanelComponent');
-    let AuthPanelComponentComponentFactory = this.resolver.resolveComponentFactory(factoryClass);
-    this.authRef = this.containerPanelAuthComponent.createComponent(AuthPanelComponentComponentFactory);
+  auth() {
+    this.name = this.userService.name;
+    this.text_1 = this.name;
+    this.text_2 = 'Выход';
+    console.log("name: " + this.name);
+  }
+
+  clickText1() {
+    if (this.statusAuth === 0) {
+      this.router.navigate([`login`], { relativeTo: this.route });
+    } else {
+
+    }
+  }
+
+  clickText2() {
+    if (this.statusAuth === 0) {
+      this.router.navigate([`registration`], { relativeTo: this.route });
+    } else {
+      this.userService.logout();
+      window.location.reload();
+    }
   }
   ngOnDestroy(): void {
-    if(this.authRef){
-      this.authRef.destroy();
-    }
+
   }
 
 }

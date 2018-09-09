@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   years: any;
   countries: any;
   country: any = 'Страна';
-  activeGenre = 'ВСЕ';
+  activeGenre = 'Все';
 
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([``], { relativeTo: this.route });
     const filterFilm: Film = this.filmsService.filterFilm;
     this.activeGenre = genre;
-    genre !== 'ВСЕ' ? filterFilm.genres = [genre] : filterFilm.genres = [''] ;
+    genre !== 'Все' ? filterFilm.genres = [genre] : filterFilm.genres = [''] ;
     // this.filmsService.setfilterFilm(filterFilm);
     this.filmsService.getFilms();
   }
@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
     this.filmsService.getFilms();
 
     filmFilter.year = 0;
-    filmFilter.genres = [''];
+    filmFilter.antiGenres = [''];
 
 
   }

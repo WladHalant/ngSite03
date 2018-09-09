@@ -28,13 +28,15 @@ import { AuthPanelComponent } from './users/auth-panel/auth-panel.component';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { SafePipe } from './movies/safe-pipe.pipe';
+// import { ErrorSearchComponent } from './movies/error-search/error-search.component';
 
 const routes = [
   {path: '', component: FrontPageComponent},
   {path: 'player/:filmID', component: PlayerPageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  // {path: 'error-search', component: ErrorSearchComponent}
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ const routes = [
     ContainerPanelAuthComponent,
     UnauthPanelComponent,
     AuthPanelComponent,
-    SafePipe
+    SafePipe,
+    // ErrorSearchComponent
   ],
   imports: [
     BrowserModule,
