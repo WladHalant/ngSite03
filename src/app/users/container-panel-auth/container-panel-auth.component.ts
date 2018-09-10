@@ -1,14 +1,11 @@
-import {Component, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, Type, OnInit, OnDestroy} from '@angular/core';
-import {UnauthPanelComponent} from '../unauth-panel/unauth-panel.component';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {UserService} from '../user.service';
-import {AuthPanelComponent} from '../auth-panel/auth-panel.component';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-container-panel-auth',
   templateUrl: './container-panel-auth.component.html',
-  entryComponents: [ UnauthPanelComponent, AuthPanelComponent ],
   styleUrls: ['./container-panel-auth.component.scss']
 })
 export class ContainerPanelAuthComponent implements OnInit, OnDestroy {

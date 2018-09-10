@@ -86,21 +86,21 @@
           <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">{{country}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="getFilmsForCountry($event.target)">Все</a>
-            <a *ngFor="let country of countries" class="dropdown-item" (click)="getFilmsForCountry($event.target)">{{country}}</a>
+            <a *ngFor="let country of countries" class="dropdown-item link" (click)="getFilmsForCountry($event.target)">{{country}}</a>
           </ul>
         </div>
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">{{year}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="getFilmsForYear($event.target)">Все</a>
-            <a *ngFor="let year of years" class="dropdown-item" (click)="getFilmsForYear($event.target)">{{year}}</a>
+            <a *ngFor="let year of years" class="dropdown-item link" (click)="getFilmsForYear($event.target)">{{year}}</a>
           </ul>
         </div>
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">{{activeGenre}}<span class="caret"></span></button>
           <ul class="dropdown-menu scrollable-menu" role="menu">
             <a class="dropdown-item" (click)="searchGenre($event, 'Все')">Все</a>
-            <a *ngFor="let genre of this.genres" class="dropdown-item" (click)="searchGenre($event, genre)">{{genre}}</a>
+            <a *ngFor="let genre of this.genres" class="dropdown-item link" (click)="searchGenre($event, genre)">{{genre}}</a>
           </ul>
         </div>
 

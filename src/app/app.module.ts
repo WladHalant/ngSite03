@@ -22,8 +22,6 @@ import { LoginComponent } from './users/login/login.component';
 import { RegistrationComponent } from './users/registration/registration.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { ContainerPanelAuthComponent } from './users/container-panel-auth/container-panel-auth.component';
-import { UnauthPanelComponent } from './users/unauth-panel/unauth-panel.component';
-import { AuthPanelComponent } from './users/auth-panel/auth-panel.component';
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
@@ -54,8 +52,6 @@ const routes = [
     RegistrationComponent,
     ProfileComponent,
     ContainerPanelAuthComponent,
-    UnauthPanelComponent,
-    AuthPanelComponent,
     SafePipe,
     // ErrorSearchComponent
   ],
@@ -76,6 +72,5 @@ const routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [UnauthPanelComponent, AuthPanelComponent]
 })
 export class AppModule { }
