@@ -113,7 +113,7 @@
       <ul class="nav flex-column bg-dark p-0">
 
         <li class="nav-item" [ngClass]="{'active-genre': 'ВСЕ' == activeGenre}">
-          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'ВСЕ')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;Все</a>
+          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, 'Все')"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;Все</a>
         </li>
        <li *ngFor="let genre of this.genres" class="nav-item" [ngClass]="{'active-genre': genre == activeGenre}">
          <a  class="nav-link" [routerLink]="" (click)="searchGenre($event, genre)"><i class="fa fa-film text-danger"></i>&nbsp;&nbsp;{{genre}}</a>
