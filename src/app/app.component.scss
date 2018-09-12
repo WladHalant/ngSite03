@@ -123,12 +123,7 @@ background-color: grey;
     overflow-x: hidden;
 }
 .lern {
- -khtml-opacity:.50;
- -moz-opacity:.50;
- -ms-filter:"alpha(opacity=50)";
-  filter:alpha(opacity=50);
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
-  opacity:.50;
+
     background: #000000;
 }
 .link { cursor: pointer; }
