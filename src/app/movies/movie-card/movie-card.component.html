@@ -1,14 +1,17 @@
 <div class="row my-3 mx-auto bg-dark">
   <div class="col-md-12 bg-dark text-white pt-3">
-    <h3>{{film.name}}</h3>
+    <h1><a [routerLink]="['player',film.id]">{{film.name}}</a></h1>
+  </div>
+  <div class="col-md-12 bg-dark text-white pt-1">
+    <h2>Смотреть онлайн в хорошем качестве</h2>
   </div>
   <div class="col-md-3 p-3 avatars bg-dark shadow-lg">
 
     <a [routerLink]="['player',film.id]" data-tooltip="Person 1" data-placement="top">
-      <img alt="Poster" src={{film.poster}} class="card-img-top rounded">
+      <img alt={{film.name}} src={{film.poster}} class="card-img-top rounded">
     </a>
     <div class=" bg-dark p-3">
-      <a [routerLink]="['player',film.id]" class="btn btn-danger btn-block">Смотреть</a>
+      <a [routerLink]="['player',film.id]" class="btn btn-danger btn-block text-white">Смотреть</a>
     </div>
 
 
@@ -20,45 +23,43 @@
 
 
       <div class="col-md-12 bg-dark">
-        <ul class="nav flex-column bg-dark">
-          <li class="nav-item">
-            Год выпуска: {{film.year}}
-          </li>
-
+        <ul class="nav flex-column bg-dark bold">
+          <ul class="list-of-string">
+            <li class="nav-item">
+              Год выпуска: {{film.year}}
+            </li>
+          </ul>
           <li class="nav-item">
             <ul class="list-of-string">
               <li>Страны:</li>
               <li *ngFor="let country of film.countries"> <a [routerLink]="" (click)="searchCountry($event, country)">{{country}}</a> </li>
             </ul>
           </li>
-
           <li class="nav-item">
             <ul class="list-of-string">
               <li>Жанры:</li>
               <li *ngFor="let genre of film.genres"> <a [routerLink]="" (click)="searchGenre($event, genre)">{{genre}}</a> </li>
             </ul>
           </li>
-
-
+          <ul class="list-of-string">
+            <li class="nav-item">
+              Режисер: {{film.writers}}
+            </li>
+          </ul>
+          <ul class="list-of-string">
+            <li class="nav-item">
+              Рейтинг: 9.5/10
+            </li>
+          </ul>
           <li class="nav-item">
-            Режисер: {{film.writers}}
-          </li>
-          <li class="nav-item">
-            Рейтинг: 9.5/10
+            <ul class="list-of-string">
+              <li>Актеры:</li>
+              <li *ngFor="let actor of film.actors"> <a [routerLink]="" (click)="searchActor($event, actor)">{{actor}}</a> </li></ul>
           </li>
         </ul>
         <div class=" my-2 bg-dark">
-          {{film.description.substring(0,520) + "..."}}
+          {{film.description.substring(0,500) + "..."}}
         </div>
-
-        <ul class="nav flex-column bg-dark">
-        <li class="nav-item">
-          <ul class="list-of-string">
-            <li>Актеры:</li>
-            <li *ngFor="let actor of film.actors"> <a [routerLink]="" (click)="searchActor($event, actor)">{{actor}}</a> </li></ul>
-        </li>
-        </ul>
-
       </div>
     </div>
   </div>

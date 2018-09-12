@@ -1,3 +1,4 @@
+
 <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="25"
                 [minLength]="1" placeholder="Найти" (keyup.enter)="sendMsg()">
 

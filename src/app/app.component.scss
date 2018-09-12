@@ -6,10 +6,7 @@ color: white;
 .dropdown-menu > a:hover
 {
 background-color: grey;
-
 }
-
-
 .pagination > li > a:focus
 {
   background-color: black;
@@ -28,8 +25,6 @@ background-color: grey;
   background-color: #30363B;
   border-color: #1e262d;
 }
-
-
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 .social a{
   text-align:center;
@@ -61,45 +56,32 @@ background-color: grey;
 .whatsapp a:hover{background:#50b154;color:#fff;}
 .weibo a:hover{background:#d52b2b;color:#fff;}
 .dropbox a:hover{background:#1087dd;color:#fff;}
-
-
-
 .sidebar-nav li {
   text-indent: 15px;
   line-height: 10px;
 }
-
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
   color: #999999;
-
 }
-
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: #ffffff;
   background: #c82333;
 }
-
 .sidebar-nav li a:active, .sidebar-nav li a:focus {
   text-decoration: none;
 }
-
-
-
 .sidebar-nav>.sidebar-brand a {
   color: #999999;
 }
-
 .sidebar-nav>.sidebar-brand a:hover {
   color: #fff;
   background: none;
 }
-
 .btn-sm {
   margin: 2px;
-
   line-height: 15px;
   padding:10px;
   width:60px;
@@ -113,7 +95,6 @@ background-color: grey;
   border-radius: 2px;
   background:#999999 right 13px center no-repeat;
 }
-
 .selectWrapper select {
   padding: 12px 40px 12px 20px;
   font-size: 18px;
@@ -130,21 +111,17 @@ background-color: grey;
   text-indent: 0.01px;
   text-overflow: ellipsis;
 }
-
 .block {
   height: 300px;
 }
-
 .active-genre{
   background: #c82333;
-
 }
 .scrollable-menu {
     height: auto;
     max-height: 300px;
     overflow-x: hidden;
 }
-
 .lern {
  -khtml-opacity:.50;
  -moz-opacity:.50;
@@ -154,5 +131,13 @@ background-color: grey;
   opacity:.50;
     background: #000000;
 }
-
 .link { cursor: pointer; }
+.bold {
+font-size: 16px;
+font-weight:bold;
+}
+.wrap_images img
+{
+     width: 100%;
+     height: auto;
+ }

@@ -23,3 +23,12 @@ ul.list-of-string li {
 :host ::ng-deep .ui-inputtext {
   margin-right: .25em;
 }
+h1 {
+font-size: 20px;
+font-weight:bold;
+}
+a {text-decoration: none; color:#FFD700;}
+a:hover {text-decoration: none; color:#FFFF00;}
+.bold {
+font-size: 12px;
+}
