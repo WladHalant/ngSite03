@@ -1,10 +1,24 @@
 
-<div class="row my-3 mx-auto">
+
+<div class="row mx-auto pt-3">
   <div class="col-md-12 bg-dark text-white pt-3">
     <h1>{{film.name}}</h1>
     <div class="col-md-12 bg-dark text-white pt-3 text-center">
       <iframe [src]="film.path | safe" width="100%" height="350" frameborder="0" allowfullscreen></iframe>
     </div>
+
+    <div class="row mx-auto ">
+      <div class="col-md-12 bg-dark text-white pt-3 text-center">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=gebruder.tk" target="_blank" class="buttonc facebook"><span><i class="fa fa-facebook"></i></span><p>Facebook</p></a>
+
+      <a href="http://vk.com/share.php?url=gebruder.tk&title={{film.name}}&image=[IMAGE]&noparse=true" target="_blank" class="buttonc vkontakte"><span><i class="fa fa-vk"></i></span><p>Вконтакте</p></a>
+
+      <a href="https://plus.google.com/share?url=gebruder.tk" target="_blank" class="buttonc google-plus"><span><i class="fa fa-google-plus"></i></span><p>Google +</p></a>
+
+      <a href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=gebruder.tk&st.comments={{film.name}}" target="_blank" class="buttonc odnoklassniki"><span><i class="fa fa-odnoklassniki"></i></span><p>Одноклассники</p></a>
+    </div>
+    </div>
+
     <div class="col-md-12 bg-dark d">
       <ul class="nav flex-column bg-dark bold">
         <ul class="list-of-string">
@@ -26,7 +40,7 @@
         </li>
         <ul class="list-of-string">
           <li class="nav-item">
-            Режисер: {{film.writers}}
+            Режиссер: {{film.writers}}
           </li>
         </ul>
         <ul class="list-of-string">
