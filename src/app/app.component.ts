@@ -6,6 +6,7 @@ import {Lists} from './movies/Lists';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from './users/user.service';
 
+declare var $:any;
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import {UserService} from './users/user.service';
   styleUrls: ['./app.component.scss'],
   providers: [FilmsService, UserService]
 })
+
 export class AppComponent implements OnInit {
   private subscription: Subscription;
   genres: any;
@@ -25,6 +27,15 @@ export class AppComponent implements OnInit {
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+      $(".regular").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 4
+      });
+
+
+
 
     this.subscription = this.filmsService.listsSubject.subscribe((msg) => {
       const lists: Lists =  msg;
