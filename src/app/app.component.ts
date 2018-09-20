@@ -27,16 +27,6 @@ export class AppComponent implements OnInit {
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-      $(".regular").slick({
-      dots: true,
-      infinite: true,
-      slidesToShow: 5,
-      slidesToScroll: 4
-      });
-
-
-
-
     this.subscription = this.filmsService.listsSubject.subscribe((msg) => {
       const lists: Lists =  msg;
       this.genres = lists.jsonAllGenres;

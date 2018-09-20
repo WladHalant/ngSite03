@@ -22,14 +22,9 @@
         "styles.scss",
         "../node_modules/primeng/resources/themes/cupertino/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/slick/slick.css",
-        "../node_modules/slick/slick-theme.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
-
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/slick/slick.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
